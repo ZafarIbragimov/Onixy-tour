@@ -1,0 +1,3090 @@
+<!doctype html>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <script>if (navigator.userAgent.match(/MSIE|Internet Explorer/i) || navigator.userAgent.match(/Trident\/7\..*?rv:11/i)) { var href = document.location.href; if (!href.match(/[?&]nowprocket/)) { if (href.indexOf("?") == -1) { if (href.indexOf("#") == -1) { document.location.href = href + "?nowprocket=1" } else { document.location.href = href.replace("#", "?nowprocket=1#") } } else { if (href.indexOf("#") == -1) { document.location.href = href + "&nowprocket=1" } else { document.location.href = href.replace("#", "&nowprocket=1#") } } } }</script>
+    <script>class RocketLazyLoadScripts { constructor() { this.triggerEvents = ["keydown", "mousedown", "mousemove", "touchmove", "touchstart", "touchend", "wheel"], this.userEventHandler = this._triggerListener.bind(this), this.touchStartHandler = this._onTouchStart.bind(this), this.touchMoveHandler = this._onTouchMove.bind(this), this.touchEndHandler = this._onTouchEnd.bind(this), this.clickHandler = this._onClick.bind(this), this.interceptedClicks = [], window.addEventListener("pageshow", (e => { this.persisted = e.persisted })), window.addEventListener("DOMContentLoaded", (() => { this._preconnect3rdParties() })), this.delayedScripts = { normal: [], async: [], defer: [] }, this.allJQueries = [] } _addUserInteractionListener(e) { document.hidden ? e._triggerListener() : (this.triggerEvents.forEach((t => window.addEventListener(t, e.userEventHandler, { passive: !0 }))), window.addEventListener("touchstart", e.touchStartHandler, { passive: !0 }), window.addEventListener("mousedown", e.touchStartHandler), document.addEventListener("visibilitychange", e.userEventHandler)) } _removeUserInteractionListener() { this.triggerEvents.forEach((e => window.removeEventListener(e, this.userEventHandler, { passive: !0 }))), document.removeEventListener("visibilitychange", this.userEventHandler) } _onTouchStart(e) { "HTML" !== e.target.tagName && (window.addEventListener("touchend", this.touchEndHandler), window.addEventListener("mouseup", this.touchEndHandler), window.addEventListener("touchmove", this.touchMoveHandler, { passive: !0 }), window.addEventListener("mousemove", this.touchMoveHandler), e.target.addEventListener("click", this.clickHandler), this._renameDOMAttribute(e.target, "onclick", "rocket-onclick")) } _onTouchMove(e) { window.removeEventListener("touchend", this.touchEndHandler), window.removeEventListener("mouseup", this.touchEndHandler), window.removeEventListener("touchmove", this.touchMoveHandler, { passive: !0 }), window.removeEventListener("mousemove", this.touchMoveHandler), e.target.removeEventListener("click", this.clickHandler), this._renameDOMAttribute(e.target, "rocket-onclick", "onclick") } _onTouchEnd(e) { window.removeEventListener("touchend", this.touchEndHandler), window.removeEventListener("mouseup", this.touchEndHandler), window.removeEventListener("touchmove", this.touchMoveHandler, { passive: !0 }), window.removeEventListener("mousemove", this.touchMoveHandler) } _onClick(e) { e.target.removeEventListener("click", this.clickHandler), this._renameDOMAttribute(e.target, "rocket-onclick", "onclick"), this.interceptedClicks.push(e), e.preventDefault(), e.stopPropagation(), e.stopImmediatePropagation() } _replayClicks() { window.removeEventListener("touchstart", this.touchStartHandler, { passive: !0 }), window.removeEventListener("mousedown", this.touchStartHandler), this.interceptedClicks.forEach((e => { e.target.dispatchEvent(new MouseEvent("click", { view: e.view, bubbles: !0, cancelable: !0 })) })) } _renameDOMAttribute(e, t, n) { e.hasAttribute && e.hasAttribute(t) && (event.target.setAttribute(n, event.target.getAttribute(t)), event.target.removeAttribute(t)) } _triggerListener() { this._removeUserInteractionListener(this), "loading" === document.readyState ? document.addEventListener("DOMContentLoaded", this._loadEverythingNow.bind(this)) : this._loadEverythingNow() } _preconnect3rdParties() { let e = []; document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t => { if (t.hasAttribute("src")) { const n = new URL(t.src).origin; n !== location.origin && e.push({ src: n, crossOrigin: t.crossOrigin || "module" === t.getAttribute("data-rocket-type") }) } })), e = [...new Map(e.map((e => [JSON.stringify(e), e]))).values()], this._batchInjectResourceHints(e, "preconnect") } async _loadEverythingNow() { this.lastBreath = Date.now(), this._delayEventListeners(), this._delayJQueryReady(this), this._handleDocumentWrite(), this._registerAllDelayedScripts(), this._preloadAllScripts(), await this._loadScriptsFromList(this.delayedScripts.normal), await this._loadScriptsFromList(this.delayedScripts.defer), await this._loadScriptsFromList(this.delayedScripts.async); try { await this._triggerDOMContentLoaded(), await this._triggerWindowLoad() } catch (e) { } window.dispatchEvent(new Event("rocket-allScriptsLoaded")), this._replayClicks() } _registerAllDelayedScripts() { document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e => { e.hasAttribute("src") ? e.hasAttribute("async") && !1 !== e.async ? this.delayedScripts.async.push(e) : e.hasAttribute("defer") && !1 !== e.defer || "module" === e.getAttribute("data-rocket-type") ? this.delayedScripts.defer.push(e) : this.delayedScripts.normal.push(e) : this.delayedScripts.normal.push(e) })) } async _transformScript(e) { return await this._littleBreath(), new Promise((t => { const n = document.createElement("script");[...e.attributes].forEach((e => { let t = e.nodeName; "type" !== t && ("data-rocket-type" === t && (t = "type"), n.setAttribute(t, e.nodeValue)) })), e.hasAttribute("src") ? (n.addEventListener("load", t), n.addEventListener("error", t)) : (n.text = e.text, t()); try { e.parentNode.replaceChild(n, e) } catch (e) { t() } })) } async _loadScriptsFromList(e) { const t = e.shift(); return t ? (await this._transformScript(t), this._loadScriptsFromList(e)) : Promise.resolve() } _preloadAllScripts() { this._batchInjectResourceHints([...this.delayedScripts.normal, ...this.delayedScripts.defer, ...this.delayedScripts.async], "preload") } _batchInjectResourceHints(e, t) { var n = document.createDocumentFragment(); e.forEach((e => { if (e.src) { const i = document.createElement("link"); i.href = e.src, i.rel = t, "preconnect" !== t && (i.as = "script"), e.getAttribute && "module" === e.getAttribute("data-rocket-type") && (i.crossOrigin = !0), e.crossOrigin && (i.crossOrigin = e.crossOrigin), n.appendChild(i) } })), document.head.appendChild(n) } _delayEventListeners() { let e = {}; function t(t, n) { !function (t) { function n(n) { return e[t].eventsToRewrite.indexOf(n) >= 0 ? "rocket-" + n : n } e[t] || (e[t] = { originalFunctions: { add: t.addEventListener, remove: t.removeEventListener }, eventsToRewrite: [] }, t.addEventListener = function () { arguments[0] = n(arguments[0]), e[t].originalFunctions.add.apply(t, arguments) }, t.removeEventListener = function () { arguments[0] = n(arguments[0]), e[t].originalFunctions.remove.apply(t, arguments) }) }(t), e[t].eventsToRewrite.push(n) } function n(e, t) { let n = e[t]; Object.defineProperty(e, t, { get: () => n || function () { }, set(i) { e["rocket" + t] = n = i } }) } t(document, "DOMContentLoaded"), t(window, "DOMContentLoaded"), t(window, "load"), t(window, "pageshow"), t(document, "readystatechange"), n(document, "onreadystatechange"), n(window, "onload"), n(window, "onpageshow") } _delayJQueryReady(e) { let t = window.jQuery; Object.defineProperty(window, "jQuery", { get: () => t, set(n) { if (n && n.fn && !e.allJQueries.includes(n)) { n.fn.ready = n.fn.init.prototype.ready = function (t) { e.domReadyFired ? t.bind(document)(n) : document.addEventListener("rocket-DOMContentLoaded", (() => t.bind(document)(n))) }; const t = n.fn.on; n.fn.on = n.fn.init.prototype.on = function () { if (this[0] === window) { function e(e) { return e.split(" ").map((e => "load" === e || 0 === e.indexOf("load.") ? "rocket-jquery-load" : e)).join(" ") } "string" == typeof arguments[0] || arguments[0] instanceof String ? arguments[0] = e(arguments[0]) : "object" == typeof arguments[0] && Object.keys(arguments[0]).forEach((t => { delete Object.assign(arguments[0], { [e(t)]: arguments[0][t] })[t] })) } return t.apply(this, arguments), this }, e.allJQueries.push(n) } t = n } }) } async _triggerDOMContentLoaded() { this.domReadyFired = !0, await this._littleBreath(), document.dispatchEvent(new Event("rocket-DOMContentLoaded")), await this._littleBreath(), window.dispatchEvent(new Event("rocket-DOMContentLoaded")), await this._littleBreath(), document.dispatchEvent(new Event("rocket-readystatechange")), await this._littleBreath(), document.rocketonreadystatechange && document.rocketonreadystatechange() } async _triggerWindowLoad() { await this._littleBreath(), window.dispatchEvent(new Event("rocket-load")), await this._littleBreath(), window.rocketonload && window.rocketonload(), await this._littleBreath(), this.allJQueries.forEach((e => e(window).trigger("rocket-jquery-load"))), await this._littleBreath(); const e = new Event("rocket-pageshow"); e.persisted = this.persisted, window.dispatchEvent(e), await this._littleBreath(), window.rocketonpageshow && window.rocketonpageshow({ persisted: this.persisted }) } _handleDocumentWrite() { const e = new Map; document.write = document.writeln = function (t) { const n = document.currentScript, i = document.createRange(), r = n.parentElement; let o = e.get(n); void 0 === o && (o = n.nextSibling, e.set(n, o)); const s = document.createDocumentFragment(); i.setStart(s, 0), s.appendChild(i.createContextualFragment(t)), r.insertBefore(s, o) } } async _littleBreath() { Date.now() - this.lastBreath > 45 && (await this._requestAnimFrame(), this.lastBreath = Date.now()) } async _requestAnimFrame() { return document.hidden ? new Promise((e => setTimeout(e))) : new Promise((e => requestAnimationFrame(e))) } static run() { const e = new RocketLazyLoadScripts; e._addUserInteractionListener(e) } } RocketLazyLoadScripts.run();</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+    <!-- This site is optimized with the Yoast SEO Premium plugin v21.4 (Yoast SEO v23.0) - https://yoast.com/wordpress/plugins/seo/ -->
+    <title>Главная Onyx Tour % горящие туры % туры по всем направлениям % самые дешёвые туры ✈️</title>
+    <style id="rocket-critical-css">
+        :root {
+            --swiper-theme-color: #007aff
+        }
+
+        :root {
+            --swiper-navigation-size: 44px
+        }
+
+        @media (max-width:48em) {
+            ::-webkit-scrollbar {
+                width: 3px;
+                height: 3px
+            }
+
+            ::-webkit-scrollbar-track {
+                background-color: rgba(11, 11, 11, .4);
+                border-radius: 10px
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #016aa7;
+                border-radius: 10px
+            }
+        }
+
+        :root {
+            --wp-admin-theme-color: #3858e9;
+            --wp-admin-theme-color--rgb: 56, 88, 233;
+            --wp-admin-theme-color-darker-10: #2145e6;
+            --wp-admin-theme-color-darker-10--rgb: 33, 69, 230;
+            --wp-admin-theme-color-darker-20: #183ad6;
+            --wp-admin-theme-color-darker-20--rgb: 24, 58, 214;
+            --wp-admin-border-width-focus: 2px
+        }
+
+        :root {
+            --wp-admin-theme-color: #007cba;
+            --wp-admin-theme-color--rgb: 0, 124, 186;
+            --wp-admin-theme-color-darker-10: #006ba1;
+            --wp-admin-theme-color-darker-10--rgb: 0, 107, 161;
+            --wp-admin-theme-color-darker-20: #005a87;
+            --wp-admin-theme-color-darker-20--rgb: 0, 90, 135;
+            --wp-admin-border-width-focus: 2px;
+            --wp-block-synced-color: #7a00df;
+            --wp-block-synced-color--rgb: 122, 0, 223
+        }
+
+        :root {
+            --wp-admin-theme-color: #007cba;
+            --wp-admin-theme-color--rgb: 0, 124, 186;
+            --wp-admin-theme-color-darker-10: #006ba1;
+            --wp-admin-theme-color-darker-10--rgb: 0, 107, 161;
+            --wp-admin-theme-color-darker-20: #005a87;
+            --wp-admin-theme-color-darker-20--rgb: 0, 90, 135;
+            --wp-admin-border-width-focus: 2px;
+            --wp-block-synced-color: #7a00df;
+            --wp-block-synced-color--rgb: 122, 0, 223
+        }
+
+        :root {
+            --wp-admin-theme-color: #007cba;
+            --wp-admin-theme-color--rgb: 0, 124, 186;
+            --wp-admin-theme-color-darker-10: #006ba1;
+            --wp-admin-theme-color-darker-10--rgb: 0, 107, 161;
+            --wp-admin-theme-color-darker-20: #005a87;
+            --wp-admin-theme-color-darker-20--rgb: 0, 90, 135;
+            --wp-admin-border-width-focus: 2px;
+            --wp-block-synced-color: #7a00df;
+            --wp-block-synced-color--rgb: 122, 0, 223
+        }
+
+        :root {
+            --wp-admin-theme-color: #007cba;
+            --wp-admin-theme-color--rgb: 0, 124, 186;
+            --wp-admin-theme-color-darker-10: #006ba1;
+            --wp-admin-theme-color-darker-10--rgb: 0, 107, 161;
+            --wp-admin-theme-color-darker-20: #005a87;
+            --wp-admin-theme-color-darker-20--rgb: 0, 90, 135;
+            --wp-admin-border-width-focus: 2px;
+            --wp-block-synced-color: #7a00df;
+            --wp-block-synced-color--rgb: 122, 0, 223
+        }
+
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        @-moz-keyframes fadeIn {
+            0% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        :root {
+            --woocommerce: #7F54B3;
+            --wc-green: #7ad03a;
+            --wc-red: #a00;
+            --wc-orange: #ffba00;
+            --wc-blue: #2ea2cc;
+            --wc-primary: #7F54B3;
+            --wc-primary-text: white;
+            --wc-secondary: #e9e6ed;
+            --wc-secondary-text: #515151;
+            --wc-highlight: #b3af54;
+            --wc-highligh-text: white;
+            --wc-content-bg: #fff;
+            --wc-subtext: #767676
+        }
+
+        :root {
+            --woocommerce: #7F54B3;
+            --wc-green: #7ad03a;
+            --wc-red: #a00;
+            --wc-orange: #ffba00;
+            --wc-blue: #2ea2cc;
+            --wc-primary: #7F54B3;
+            --wc-primary-text: white;
+            --wc-secondary: #e9e6ed;
+            --wc-secondary-text: #515151;
+            --wc-highlight: #b3af54;
+            --wc-highligh-text: white;
+            --wc-content-bg: #fff;
+            --wc-subtext: #767676
+        }
+
+        .screen-reader-text {
+            clip: rect(1px, 1px, 1px, 1px);
+            height: 1px;
+            overflow: hidden;
+            position: absolute !important;
+            width: 1px;
+            word-wrap: normal !important
+        }
+
+        .menu-item-object-language_switcher .trp-flag-image {
+            display: inline-block;
+            margin: -1px 5px;
+            vertical-align: baseline;
+            padding: 0;
+            border: 0;
+            border-radius: 0
+        }
+
+        .site-navigation {
+            grid-area: nav-menu;
+            display: flex;
+            align-items: center;
+            flex-grow: 1
+        }
+
+        .elementor-screen-only,
+        .screen-reader-text {
+            position: absolute;
+            top: -10000em;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0
+        }
+
+        .elementor *,
+        .elementor :after,
+        .elementor :before {
+            box-sizing: border-box
+        }
+
+        .elementor a {
+            box-shadow: none;
+            text-decoration: none
+        }
+
+        .elementor img {
+            height: auto;
+            max-width: 100%;
+            border: none;
+            border-radius: 0;
+            box-shadow: none
+        }
+
+        .elementor-element {
+            --flex-direction: initial;
+            --flex-wrap: initial;
+            --justify-content: initial;
+            --align-items: initial;
+            --align-content: initial;
+            --gap: initial;
+            --flex-basis: initial;
+            --flex-grow: initial;
+            --flex-shrink: initial;
+            --order: initial;
+            --align-self: initial;
+            flex-basis: var(--flex-basis);
+            flex-grow: var(--flex-grow);
+            flex-shrink: var(--flex-shrink);
+            order: var(--order);
+            align-self: var(--align-self)
+        }
+
+        :root {
+            --page-title-display: block
+        }
+
+        .elementor-section {
+            position: relative
+        }
+
+        .elementor-section .elementor-container {
+            display: flex;
+            margin-right: auto;
+            margin-left: auto;
+            position: relative
+        }
+
+        @media (max-width:1024px) {
+            .elementor-section .elementor-container {
+                flex-wrap: wrap
+            }
+        }
+
+        .elementor-section.elementor-section-boxed>.elementor-container {
+            max-width: 1140px
+        }
+
+        .elementor-section.elementor-section-stretched {
+            position: relative;
+            width: 100%
+        }
+
+        .elementor-widget-wrap {
+            position: relative;
+            width: 100%;
+            flex-wrap: wrap;
+            align-content: flex-start
+        }
+
+        .elementor:not(.elementor-bc-flex-widget) .elementor-widget-wrap {
+            display: flex
+        }
+
+        .elementor-widget-wrap>.elementor-element {
+            width: 100%
+        }
+
+        .elementor-widget {
+            position: relative
+        }
+
+        .elementor-widget:not(:last-child) {
+            margin-bottom: 20px
+        }
+
+        .elementor-column {
+            position: relative;
+            min-height: 1px;
+            display: flex
+        }
+
+        .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+            padding: 10px
+        }
+
+        @media (min-width:768px) {
+            .elementor-column.elementor-col-33 {
+                width: 33.333%
+            }
+
+            .elementor-column.elementor-col-50 {
+                width: 50%
+            }
+
+            .elementor-column.elementor-col-100 {
+                width: 100%
+            }
+        }
+
+        @media (max-width:767px) {
+            .elementor-column {
+                width: 100%
+            }
+        }
+
+        @media (min-width:1025px) {
+            #elementor-device-mode:after {
+                content: "desktop"
+            }
+        }
+
+        @media (min-width:-1) {
+            #elementor-device-mode:after {
+                content: "widescreen"
+            }
+        }
+
+        @media (max-width:-1) {
+            #elementor-device-mode:after {
+                content: "laptop";
+                content: "tablet_extra"
+            }
+        }
+
+        @media (max-width:1024px) {
+            #elementor-device-mode:after {
+                content: "tablet"
+            }
+        }
+
+        @media (max-width:-1) {
+            #elementor-device-mode:after {
+                content: "mobile_extra"
+            }
+        }
+
+        @media (max-width:767px) {
+            #elementor-device-mode:after {
+                content: "mobile"
+            }
+        }
+
+        .elementor-element {
+            --swiper-theme-color: #000;
+            --swiper-navigation-size: 44px;
+            --swiper-pagination-bullet-size: 6px;
+            --swiper-pagination-bullet-horizontal-gap: 6px
+        }
+
+        .animated {
+            animation-duration: 1.25s
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            .animated {
+                animation: none
+            }
+        }
+
+        .elementor-kit-298 {
+            --e-global-color-primary: #2A363B;
+            --e-global-color-secondary: #E49052;
+            --e-global-color-text: #626262;
+            --e-global-color-accent: #F58634;
+            --e-global-color-455bc9c: #FFFFFF;
+            --e-global-color-2fdfd79: #00000030;
+            --e-global-color-d67011a: #FFDA00;
+            --e-global-typography-primary-font-family: "Poppins";
+            --e-global-typography-primary-font-weight: 600;
+            --e-global-typography-secondary-font-family: "Poppins";
+            --e-global-typography-secondary-font-weight: 400;
+            --e-global-typography-text-font-family: "Raleway";
+            --e-global-typography-text-font-weight: 400;
+            --e-global-typography-accent-font-family: "Poppins";
+            --e-global-typography-accent-font-weight: 500;
+            --e-global-typography-deb0209-font-family: "Raleway";
+            --e-global-typography-deb0209-font-size: 0.8em;
+            --e-global-typography-deb0209-font-weight: 400;
+            color: var(--e-global-color-text);
+            font-size: 16px
+        }
+
+        .elementor-kit-298 h1 {
+            color: var(--e-global-color-primary);
+            font-family: "Poppins", Sans-serif;
+            font-size: 5vw;
+            font-weight: 600
+        }
+
+        .elementor-kit-298 h2 {
+            color: var(--e-global-color-primary);
+            font-family: "Poppins", Sans-serif;
+            font-size: 3.1em;
+            font-weight: 600
+        }
+
+        .elementor-section.elementor-section-boxed>.elementor-container {
+            max-width: 1140px
+        }
+
+        .elementor-widget:not(:last-child) {
+            margin-block-end: 20px
+        }
+
+        .elementor-element {
+            --widgets-spacing: 20px 20px
+        }
+
+        @media (max-width:1024px) {
+            .elementor-section.elementor-section-boxed>.elementor-container {
+                max-width: 1024px
+            }
+        }
+
+        @media (max-width:767px) {
+            .elementor-kit-298 h1 {
+                font-size: 4em;
+                line-height: 1.2em
+            }
+
+            .elementor-kit-298 h2 {
+                font-size: 2.5em;
+                line-height: 1.2em
+            }
+
+            .elementor-section.elementor-section-boxed>.elementor-container {
+                max-width: 767px
+            }
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: eicons;
+            src: url(https://onyxtour.uz/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.27.0);
+            src: url(https://onyxtour.uz/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.27.0#iefix) format("embedded-opentype"), url(https://onyxtour.uz/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2?5.27.0) format("woff2"), url(https://onyxtour.uz/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff?5.27.0) format("woff"), url(https://onyxtour.uz/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf?5.27.0) format("truetype"), url(https://onyxtour.uz/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.svg?5.27.0#eicon) format("svg");
+            font-weight: 400;
+            font-style: normal
+        }
+
+        [class*=" eicon-"] {
+            display: inline-block;
+            font-family: eicons;
+            font-size: inherit;
+            font-weight: 400;
+            font-style: normal;
+            font-variant: normal;
+            line-height: 1;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        .eicon-menu-bar:before {
+            content: "\e816"
+        }
+
+        .eicon-close:before {
+            content: "\e87f"
+        }
+
+        .elementor-location-header:before {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        [data-elementor-type=popup]:not(.elementor-edit-area) {
+            display: none
+        }
+
+        .elementor-229 .elementor-element.elementor-element-2beb4e30>.elementor-container {
+            min-height: 60vh
+        }
+
+        .elementor-229 .elementor-element.elementor-element-2beb4e30>.elementor-container>.elementor-column>.elementor-widget-wrap {
+            align-content: center;
+            align-items: center
+        }
+
+        .elementor-229 .elementor-element.elementor-element-1dbf234d:not(.elementor-motion-effects-element-type-background)>.elementor-widget-wrap {
+            background-color: #000000;
+            background-image: url("https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12.jpg");
+            background-position: center center;
+            background-size: cover
+        }
+
+        .elementor-229 .elementor-element.elementor-element-1dbf234d>.elementor-element-populated {
+            border-radius: 0px 0px 10px 0px
+        }
+
+        .elementor-229 .elementor-element.elementor-element-4d1ac016 {
+            padding: 50px 50px 50px 50px
+        }
+
+        .elementor-229 .elementor-element.elementor-element-38abad1d {
+            text-align: left
+        }
+
+        .elementor-229 .elementor-element.elementor-element-38abad1d .elementor-heading-title {
+            color: var(--e-global-color-455bc9c);
+            font-family: "Poppins", Sans-serif;
+            font-size: 6.4rem;
+            font-weight: 700;
+            text-shadow: 1px 5px 10px rgba(0, 0, 0, 0.3)
+        }
+
+        .elementor-229 .elementor-element.elementor-element-6ab96e9f {
+            margin-top: 180px;
+            margin-bottom: 050px
+        }
+
+        .elementor-229 .elementor-element.elementor-element-7ef6dce6.elementor-column.elementor-element[data-element_type="column"]>.elementor-widget-wrap.elementor-element-populated {
+            align-content: flex-end;
+            align-items: flex-end
+        }
+
+        .elementor-229 .elementor-element.elementor-element-7ef6dce6>.elementor-element-populated {
+            padding: 5px 5px 5px 5px
+        }
+
+        .elementor-229 .elementor-element.elementor-element-1feb179d .elementor-heading-title {
+            font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+            font-weight: var(--e-global-typography-primary-font-weight)
+        }
+
+        @media (max-width:1024px) and (min-width:768px) {
+            .elementor-229 .elementor-element.elementor-element-1dbf234d {
+                width: 100%
+            }
+
+            .elementor-229 .elementor-element.elementor-element-7ef6dce6 {
+                width: 100%
+            }
+
+            .elementor-229 .elementor-element.elementor-element-2dcfd41e {
+                width: 50%
+            }
+
+            .elementor-229 .elementor-element.elementor-element-cf4424a {
+                width: 50%
+            }
+        }
+
+        @media (max-width:1024px) {
+            .elementor-229 .elementor-element.elementor-element-6ab96e9f {
+                margin-top: 50px;
+                margin-bottom: 50px
+            }
+
+            .elementor-229 .elementor-element.elementor-element-1feb179d {
+                text-align: center
+            }
+        }
+
+        @media (max-width:767px) {
+            .elementor-229 .elementor-element.elementor-element-4d1ac016 {
+                padding: 100px 0px 100px 0px
+            }
+
+            .elementor-229 .elementor-element.elementor-element-38abad1d {
+                text-align: center
+            }
+
+            .elementor-229 .elementor-element.elementor-element-38abad1d .elementor-heading-title {
+                font-size: 2.6rem
+            }
+        }
+
+        .elementor-68 .elementor-element.elementor-element-187cd36d>.elementor-container>.elementor-column>.elementor-widget-wrap {
+            align-content: center;
+            align-items: center
+        }
+
+        .elementor-68 .elementor-element.elementor-element-187cd36d:not(.elementor-motion-effects-element-type-background) {
+            background-color: #ffffff
+        }
+
+        .elementor-68 .elementor-element.elementor-element-187cd36d {
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+            z-index: 99
+        }
+
+        .elementor-68 .elementor-element.elementor-element-fdbf436 img {
+            width: 75%
+        }
+
+        .elementor-68 .elementor-element.elementor-element-fdbf436>.elementor-widget-container {
+            padding: 5px 5px 5px 5px
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-menu-toggle {
+            margin-left: auto;
+            background-color: rgba(0, 0, 0, 0);
+            border-width: 0px;
+            border-radius: 0px
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu .elementor-item {
+            font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+            font-weight: var(--e-global-typography-primary-font-weight)
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--main .elementor-item {
+            color: #54595f;
+            fill: #54595f;
+            padding-top: 36px;
+            padding-bottom: 36px
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--main .elementor-item.elementor-item-active {
+            color: var(--e-global-color-accent);
+            fill: var(--e-global-color-accent)
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f {
+            --e-nav-menu-horizontal-menu-item-margin: calc(6px / 2);
+            --nav-menu-icon-size: 30px
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--dropdown a,
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-menu-toggle {
+            color: #000000
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--dropdown {
+            background-color: #f2f2f2
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--dropdown a.elementor-item-active {
+            color: var(--e-global-color-secondary)
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--dropdown a.elementor-item-active {
+            background-color: #ededed
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--dropdown .elementor-item {
+            font-size: 15px
+        }
+
+        .elementor-68 .elementor-element.elementor-element-3d2df10f div.elementor-menu-toggle {
+            color: #000000
+        }
+
+        @media (max-width:1024px) {
+            .elementor-68 .elementor-element.elementor-element-187cd36d {
+                padding: 20px 20px 20px 20px
+            }
+
+            .elementor-68 .elementor-element.elementor-element-fdbf436 img {
+                width: 100%
+            }
+
+            .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--main .elementor-item {
+                padding-left: 14px;
+                padding-right: 14px
+            }
+
+            .elementor-68 .elementor-element.elementor-element-3d2df10f {
+                --e-nav-menu-horizontal-menu-item-margin: calc(0px / 2)
+            }
+        }
+
+        @media (max-width:767px) {
+            .elementor-68 .elementor-element.elementor-element-187cd36d {
+                padding: 10px 10px 10px 10px
+            }
+
+            .elementor-68 .elementor-element.elementor-element-7638d077 {
+                width: 50%
+            }
+
+            .elementor-68 .elementor-element.elementor-element-7638d077>.elementor-element-populated {
+                margin: 0px 0px 0px 0px;
+                --e-column-margin-right: 0px;
+                --e-column-margin-left: 0px
+            }
+
+            .elementor-68 .elementor-element.elementor-element-fdbf436 {
+                text-align: left
+            }
+
+            .elementor-68 .elementor-element.elementor-element-fdbf436 img {
+                width: 100%
+            }
+
+            .elementor-68 .elementor-element.elementor-element-7f96eba5 {
+                width: 50%
+            }
+
+            .elementor-68 .elementor-element.elementor-element-7f96eba5>.elementor-element-populated {
+                margin: 0px 0px 0px 0px;
+                --e-column-margin-right: 0px;
+                --e-column-margin-left: 0px
+            }
+
+            .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu--dropdown a {
+                padding-top: 12px;
+                padding-bottom: 12px
+            }
+
+            .elementor-68 .elementor-element.elementor-element-3d2df10f .elementor-nav-menu__container.elementor-nav-menu--dropdown {
+                margin-top: 20px !important
+            }
+        }
+
+        @media (min-width:768px) {
+            .elementor-68 .elementor-element.elementor-element-7638d077 {
+                width: 20%
+            }
+
+            .elementor-68 .elementor-element.elementor-element-7f96eba5 {
+                width: 80%
+            }
+        }
+
+        @media (max-width:1024px) and (min-width:768px) {
+            .elementor-68 .elementor-element.elementor-element-7638d077 {
+                width: 20%
+            }
+
+            .elementor-68 .elementor-element.elementor-element-7f96eba5 {
+                width: 80%
+            }
+        }
+
+        .elementor-item:after,
+        .elementor-item:before {
+            display: block;
+            position: absolute
+        }
+
+        .elementor-item:not(:hover):not(:focus):not(.elementor-item-active):not(.highlighted):after,
+        .elementor-item:not(:hover):not(:focus):not(.elementor-item-active):not(.highlighted):before {
+            opacity: 0
+        }
+
+        .elementor-item-active:after,
+        .elementor-item-active:before {
+            transform: scale(1)
+        }
+
+        .elementor-nav-menu--main .elementor-nav-menu a {
+            padding: 13px 20px
+        }
+
+        .elementor-nav-menu--layout-horizontal {
+            display: flex
+        }
+
+        .elementor-nav-menu--layout-horizontal .elementor-nav-menu {
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        .elementor-nav-menu--layout-horizontal .elementor-nav-menu a {
+            white-space: nowrap;
+            flex-grow: 1
+        }
+
+        .elementor-nav-menu--layout-horizontal .elementor-nav-menu>li {
+            display: flex
+        }
+
+        .elementor-nav-menu--layout-horizontal .elementor-nav-menu>li:not(:first-child)>a {
+            margin-inline-start: var(--e-nav-menu-horizontal-menu-item-margin)
+        }
+
+        .elementor-nav-menu--layout-horizontal .elementor-nav-menu>li:not(:last-child)>a {
+            margin-inline-end: var(--e-nav-menu-horizontal-menu-item-margin)
+        }
+
+        .elementor-nav-menu--layout-horizontal .elementor-nav-menu>li:not(:last-child):after {
+            content: var(--e-nav-menu-divider-content, none);
+            height: var(--e-nav-menu-divider-height, 35%);
+            border-left: var(--e-nav-menu-divider-width, 2px) var(--e-nav-menu-divider-style, solid) var(--e-nav-menu-divider-color, #000);
+            border-bottom-color: var(--e-nav-menu-divider-color, #000);
+            border-right-color: var(--e-nav-menu-divider-color, #000);
+            border-top-color: var(--e-nav-menu-divider-color, #000);
+            align-self: center
+        }
+
+        .elementor-nav-menu__align-end .elementor-nav-menu {
+            margin-inline-start: auto;
+            justify-content: flex-end
+        }
+
+        .elementor-widget-nav-menu .elementor-widget-container {
+            display: flex;
+            flex-direction: column
+        }
+
+        .elementor-nav-menu {
+            position: relative;
+            z-index: 2
+        }
+
+        .elementor-nav-menu:after {
+            content: " ";
+            display: block;
+            height: 0;
+            font: 0/0 serif;
+            clear: both;
+            visibility: hidden;
+            overflow: hidden
+        }
+
+        .elementor-nav-menu,
+        .elementor-nav-menu li {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            line-height: normal
+        }
+
+        .elementor-nav-menu a,
+        .elementor-nav-menu li {
+            position: relative
+        }
+
+        .elementor-nav-menu li {
+            border-width: 0
+        }
+
+        .elementor-nav-menu a {
+            display: flex;
+            align-items: center
+        }
+
+        .elementor-nav-menu a {
+            padding: 10px 20px;
+            line-height: 20px
+        }
+
+        .elementor-nav-menu--dropdown .elementor-item.elementor-item-active {
+            background-color: #3f444b;
+            color: #fff
+        }
+
+        .elementor-menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--nav-menu-icon-size, 22px);
+            padding: .25em;
+            border: 0 solid;
+            border-radius: 3px;
+            background-color: rgba(0, 0, 0, .05);
+            color: #33373d
+        }
+
+        .elementor-menu-toggle:not(.elementor-active) .elementor-menu-toggle__icon--close {
+            display: none
+        }
+
+        .elementor-nav-menu--dropdown {
+            background-color: #fff;
+            font-size: 13px
+        }
+
+        .elementor-nav-menu--dropdown.elementor-nav-menu__container {
+            margin-top: 10px;
+            transform-origin: top;
+            overflow-y: auto;
+            overflow-x: hidden
+        }
+
+        .elementor-nav-menu--dropdown a {
+            color: #33373d
+        }
+
+        .elementor-nav-menu__text-align-center .elementor-nav-menu--dropdown .elementor-nav-menu a {
+            justify-content: center
+        }
+
+        .elementor-nav-menu--toggle {
+            --menu-height: 100vh
+        }
+
+        .elementor-nav-menu--toggle .elementor-menu-toggle:not(.elementor-active)+.elementor-nav-menu__container {
+            transform: scaleY(0);
+            max-height: 0;
+            overflow: hidden
+        }
+
+        .elementor-nav-menu--stretch .elementor-nav-menu__container.elementor-nav-menu--dropdown {
+            position: absolute;
+            z-index: 9997
+        }
+
+        @media (max-width:1024px) {
+            .elementor-nav-menu--dropdown-tablet .elementor-nav-menu--main {
+                display: none
+            }
+        }
+
+        @media (min-width:1025px) {
+
+            .elementor-nav-menu--dropdown-tablet .elementor-menu-toggle,
+            .elementor-nav-menu--dropdown-tablet .elementor-nav-menu--dropdown {
+                display: none
+            }
+
+            .elementor-nav-menu--dropdown-tablet nav.elementor-nav-menu--dropdown.elementor-nav-menu__container {
+                overflow-y: hidden
+            }
+        }
+
+        .screen-reader-text {
+            clip: rect(1px, 1px, 1px, 1px);
+            word-wrap: normal !important;
+            border: 0;
+            clip-path: inset(50%);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            overflow-wrap: normal !important;
+            padding: 0;
+            position: absolute !important;
+            width: 1px
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .fadeIn {
+            animation-name: fadeIn
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translate3d(-100%, 0, 0)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .fadeInLeft {
+            animation-name: fadeInLeft
+        }
+    </style>
+    <link rel="preload" href="https://onyxtour.uz/wp-content/cache/min/1/99b2d5bf1e089de5398ebe0a770f8226.css"
+        data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.removeAttribute('data-rocket-async')" media="all" data-minify="1" />
+    <meta name="description"
+        content="Туры в Анталию туры в Вьетнам дешёвые туры в Таиланд самые выгодные предложения шарм эль шейх горящие туры горящие туры в Анталию ранее бронирование самые дешёвые цены в ташкенте самая лучшая фирма" />
+    <link rel="canonical" href="https://onyxtour.uz/" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Главная" />
+    <meta property="og:description"
+        content="Туры в Анталию туры в Вьетнам дешёвые туры в Таиланд самые выгодные предложения шарм эль шейх горящие туры горящие туры в Анталию ранее бронирование самые дешёвые цены в ташкенте самая лучшая фирма" />
+    <meta property="og:url" content="https://onyxtour.uz/" />
+    <meta property="og:site_name" content="Onyx Tour" />
+    <meta property="article:publisher" content="https://www.facebook.com/Onyx.tour.operator" />
+    <meta property="article:modified_time" content="2024-03-31T06:12:19+00:00" />
+    <meta property="og:image" content="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-1024x683.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json"
+        class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://onyxtour.uz/#article","isPartOf":{"@id":"https://onyxtour.uz/"},"author":{"name":"admin","@id":"https://onyxtour.uz/#/schema/person/868c5464565466d30d3087475deb0ed9"},"headline":"Главная","datePublished":"2022-04-20T11:42:40+00:00","dateModified":"2024-03-31T06:12:19+00:00","mainEntityOfPage":{"@id":"https://onyxtour.uz/"},"wordCount":126,"publisher":{"@id":"https://onyxtour.uz/#organization"},"image":{"@id":"https://onyxtour.uz/#primaryimage"},"thumbnailUrl":"https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-1024x683.jpg","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://onyxtour.uz/","url":"https://onyxtour.uz/","name":"Главная Onyx Tour % горящие туры % туры по всем направлениям % самые дешёвые туры ✈️","isPartOf":{"@id":"https://onyxtour.uz/#website"},"about":{"@id":"https://onyxtour.uz/#organization"},"primaryImageOfPage":{"@id":"https://onyxtour.uz/#primaryimage"},"image":{"@id":"https://onyxtour.uz/#primaryimage"},"thumbnailUrl":"https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-1024x683.jpg","datePublished":"2022-04-20T11:42:40+00:00","dateModified":"2024-03-31T06:12:19+00:00","description":"Туры в Анталию туры в Вьетнам дешёвые туры в Таиланд самые выгодные предложения шарм эль шейх горящие туры горящие туры в Анталию ранее бронирование самые дешёвые цены в ташкенте самая лучшая фирма","breadcrumb":{"@id":"https://onyxtour.uz/#breadcrumb"},"inLanguage":"ru-RU","potentialAction":[{"@type":"ReadAction","target":["https://onyxtour.uz/"]}]},{"@type":"ImageObject","inLanguage":"ru-RU","@id":"https://onyxtour.uz/#primaryimage","url":"https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12.jpg","contentUrl":"https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12.jpg","width":1440,"height":960},{"@type":"BreadcrumbList","@id":"https://onyxtour.uz/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://onyxtour.uz/#website","url":"https://onyxtour.uz/","name":"Onyx Tour","description":"Пожалуй лучшее тур агенство Ташкента","publisher":{"@id":"https://onyxtour.uz/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://onyxtour.uz/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"ru-RU"},{"@type":"Organization","@id":"https://onyxtour.uz/#organization","name":"Onyx Tour","url":"https://onyxtour.uz/","logo":{"@type":"ImageObject","inLanguage":"ru-RU","@id":"https://onyxtour.uz/#/schema/logo/image/","url":"https://onyxtour.uz/wp-content/uploads/2022/04/1.png","contentUrl":"https://onyxtour.uz/wp-content/uploads/2022/04/1.png","width":3466,"height":1544,"caption":"Onyx Tour"},"image":{"@id":"https://onyxtour.uz/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/Onyx.tour.operator","https://www.instagram.com/onyx.tour/"]},{"@type":"Person","@id":"https://onyxtour.uz/#/schema/person/868c5464565466d30d3087475deb0ed9","name":"admin","sameAs":["https://onyxtour.uz"],"url":"https://onyxtour.uz/author/admin/"}]}</script>
+    <!-- / Yoast SEO Premium plugin. -->
+
+
+    <link rel='dns-prefetch' href='//www.googletagmanager.com' />
+    <link rel="alternate" type="application/rss+xml" title="Onyx Tour &raquo; Лента" href="https://onyxtour.uz/feed/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style id='classic-theme-styles-inline-css'>
+        /*! This file is auto-generated */
+        .wp-block-button__link {
+            color: #fff;
+            background-color: #32373c;
+            border-radius: 9999px;
+            box-shadow: none;
+            text-decoration: none;
+            padding: calc(.667em + 2px) calc(1.333em + 2px);
+            font-size: 1.125em
+        }
+
+        .wp-block-file__button {
+            background: #32373c;
+            color: #fff;
+            text-decoration: none
+        }
+    </style>
+    <style id='global-styles-inline-css'>
+        body {
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+            --wp--preset--font-size--small: 13px;
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: 36px;
+            --wp--preset--font-size--x-large: 42px;
+            --wp--preset--spacing--20: 0.44rem;
+            --wp--preset--spacing--30: 0.67rem;
+            --wp--preset--spacing--40: 1rem;
+            --wp--preset--spacing--50: 1.5rem;
+            --wp--preset--spacing--60: 2.25rem;
+            --wp--preset--spacing--70: 3.38rem;
+            --wp--preset--spacing--80: 5.06rem;
+            --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+            --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+        }
+
+        :where(.is-layout-flex) {
+            gap: 0.5em;
+        }
+
+        :where(.is-layout-grid) {
+            gap: 0.5em;
+        }
+
+        body .is-layout-flex {
+            display: flex;
+        }
+
+        body .is-layout-flex {
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        body .is-layout-flex>* {
+            margin: 0;
+        }
+
+        body .is-layout-grid {
+            display: grid;
+        }
+
+        body .is-layout-grid>* {
+            margin: 0;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        .has-black-color {
+            color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-color {
+            color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-color {
+            color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-color {
+            color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-color {
+            color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-color {
+            color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-color {
+            color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-color {
+            color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-color {
+            color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-color {
+            color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-color {
+            color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-color {
+            color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-background-color {
+            background-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-background-color {
+            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-background-color {
+            background-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-background-color {
+            background-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-background-color {
+            background-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-background-color {
+            background-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-background-color {
+            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-background-color {
+            background-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-border-color {
+            border-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-border-color {
+            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-border-color {
+            border-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-border-color {
+            border-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-border-color {
+            border-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-border-color {
+            border-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-border-color {
+            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-border-color {
+            border-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+        }
+
+        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+        }
+
+        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+        }
+
+        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+        }
+
+        .has-cool-to-warm-spectrum-gradient-background {
+            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+        }
+
+        .has-blush-light-purple-gradient-background {
+            background: var(--wp--preset--gradient--blush-light-purple) !important;
+        }
+
+        .has-blush-bordeaux-gradient-background {
+            background: var(--wp--preset--gradient--blush-bordeaux) !important;
+        }
+
+        .has-luminous-dusk-gradient-background {
+            background: var(--wp--preset--gradient--luminous-dusk) !important;
+        }
+
+        .has-pale-ocean-gradient-background {
+            background: var(--wp--preset--gradient--pale-ocean) !important;
+        }
+
+        .has-electric-grass-gradient-background {
+            background: var(--wp--preset--gradient--electric-grass) !important;
+        }
+
+        .has-midnight-gradient-background {
+            background: var(--wp--preset--gradient--midnight) !important;
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important;
+        }
+
+        .has-medium-font-size {
+            font-size: var(--wp--preset--font-size--medium) !important;
+        }
+
+        .has-large-font-size {
+            font-size: var(--wp--preset--font-size--large) !important;
+        }
+
+        .has-x-large-font-size {
+            font-size: var(--wp--preset--font-size--x-large) !important;
+        }
+
+        .wp-block-navigation a:where(:not(.wp-element-button)) {
+            color: inherit;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        .wp-block-pullquote {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+    </style>
+
+    <link rel='preload'
+        href='https://onyxtour.uz/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=9.0.2'
+        data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.removeAttribute('data-rocket-async')" media='only screen and (max-width: 768px)' />
+
+    <style id='woocommerce-inline-inline-css'>
+        .woocommerce form .form-row .required {
+            visibility: visible;
+        }
+    </style>
+
+
+
+    <link rel='preload' href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-298.css?ver=1719572215'
+        data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.removeAttribute('data-rocket-async')" media='all' />
+
+
+
+    <link rel='preload' href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-229.css?ver=1719572216'
+        data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.removeAttribute('data-rocket-async')" media='all' />
+    <link rel='preload' href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-68.css?ver=1719572216'
+        data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.removeAttribute('data-rocket-async')" media='all' />
+    <link rel='preload' href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-14.css?ver=1719994512'
+        data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.removeAttribute('data-rocket-async')" media='all' />
+    <link rel='preload' href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-1466.css?ver=1719572216'
+        data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.removeAttribute('data-rocket-async')" media='all' />
+    <style id='rocket-lazyload-inline-css'>
+        .rll-youtube-player {
+            position: relative;
+            padding-bottom: 56.23%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .rll-youtube-player:focus-within {
+            outline: 2px solid currentColor;
+            outline-offset: 5px;
+        }
+
+        .rll-youtube-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background: 0 0
+        }
+
+        .rll-youtube-player img {
+            bottom: 0;
+            display: block;
+            left: 0;
+            margin: auto;
+            max-width: 100%;
+            width: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: none;
+            height: auto;
+            -webkit-transition: .4s all;
+            -moz-transition: .4s all;
+            transition: .4s all
+        }
+
+        .rll-youtube-player img:hover {
+            -webkit-filter: brightness(75%)
+        }
+
+        .rll-youtube-player .play {
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
+            background: url(https://onyxtour.uz/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;
+            background-color: transparent !important;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+    <link rel='preload'
+        href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRaleway%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;subset=cyrillic&#038;ver=6.5.5'
+        data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        onerror="this.removeAttribute('data-rocket-async')" media='all' />
+
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <script type="rocketlazyloadscript" src="https://onyxtour.uz/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"
+        id="jquery-core-js" defer></script>
+    <script type="rocketlazyloadscript" src="https://onyxtour.uz/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"
+        id="jquery-migrate-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.9.0.2"
+        id="jquery-blockui-js" defer data-wp-strategy="defer"></script>
+    <script id="wc-add-to-cart-js-extra">
+        var wc_add_to_cart_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043a\u043e\u0440\u0437\u0438\u043d\u044b", "cart_url": "https:\/\/onyxtour.uz", "is_cart": "", "cart_redirect_after_add": "no" };
+    </script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=9.0.2"
+        id="wc-add-to-cart-js" defer data-wp-strategy="defer"></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.9.0.2"
+        id="js-cookie-js" defer data-wp-strategy="defer"></script>
+    <script id="woocommerce-js-extra">
+        var woocommerce_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%" };
+    </script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=9.0.2"
+        id="woocommerce-js" defer data-wp-strategy="defer"></script>
+    <script type="rocketlazyloadscript" data-minify="1"
+        src="https://onyxtour.uz/wp-content/cache/min/1/wp-content/plugins/translatepress-multilingual/assets/js/trp-frontend-compatibility.js?ver=1713380105"
+        id="trp-frontend-compatibility-js" defer></script>
+
+    <!-- Google tag (gtag.js) snippet added by Site Kit -->
+
+    <!-- Google Analytics snippet added by Site Kit -->
+    <script type="rocketlazyloadscript" src="https://www.googletagmanager.com/gtag/js?id=G-JCWLDZL92W"
+        id="google_gtagjs-js" async></script>
+    <script type="rocketlazyloadscript" id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["onyxtour.uz"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-JCWLDZL92W");
+</script>
+
+    <!-- End Google tag (gtag.js) snippet added by Site Kit -->
+    <meta name="generator" content="WordPress 6.5.5" />
+    <meta name="generator" content="WooCommerce 9.0.2" />
+    <meta name="generator" content="Site Kit by Google 1.130.0" />
+    <link rel="alternate" hreflang="ru-RU" href="https://onyxtour.uz/" />
+    <link rel="alternate" hreflang="en-US" href="https://onyxtour.uz/en/" />
+    <link rel="alternate" hreflang="uz-UZ" href="https://onyxtour.uz/uz/" />
+    <link rel="alternate" hreflang="ru" href="https://onyxtour.uz/" />
+    <link rel="alternate" hreflang="en" href="https://onyxtour.uz/en/" />
+    <link rel="alternate" hreflang="uz" href="https://onyxtour.uz/uz/" />
+    <noscript>
+        <style>
+            .woocommerce-product-gallery {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
+    <meta name="generator"
+        content="Elementor 3.22.3; features: e_optimized_assets_loading, e_optimized_css_loading, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+
+    <!-- Meta Pixel Code -->
+    <script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js?v=next');
+</script>
+    <!-- End Meta Pixel Code -->
+
+    <script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+        var url = window.location.origin + '?ob=open-bridge';
+        fbq('set', 'openbridge', '4957582380991094', url);
+      </script>
+    <script type="rocketlazyloadscript" data-rocket-type='text/javascript'>fbq('init', '4957582380991094', {}, {
+    "agent": "wordpress-6.5.5-3.0.16"
+})</script>
+    <script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+    fbq('track', 'PageView', []);
+  </script>
+    <!-- Meta Pixel Code -->
+    <noscript>
+        <img height="1" width="1" style="display:none" alt="fbpx"
+            src="https://www.facebook.com/tr?id=4957582380991094&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+    <link rel="icon" href="https://onyxtour.uz/wp-content/uploads/2022/04/cropped-plane-icone-32x32.png"
+        sizes="32x32" />
+    <link rel="icon" href="https://onyxtour.uz/wp-content/uploads/2022/04/cropped-plane-icone-192x192.png"
+        sizes="192x192" />
+    <link rel="apple-touch-icon"
+        href="https://onyxtour.uz/wp-content/uploads/2022/04/cropped-plane-icone-180x180.png" />
+    <meta name="msapplication-TileImage"
+        content="https://onyxtour.uz/wp-content/uploads/2022/04/cropped-plane-icone-270x270.png" />
+    <noscript>
+        <style id="rocket-lazyload-nojs-css">
+            .rll-youtube-player,
+            [data-lazy-src] {
+                display: none !important;
+            }
+        </style>
+    </noscript>
+    <script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script>
+</head>
+
+<body
+    class="home page-template page-template-elementor_header_footer page page-id-229 wp-custom-logo theme-hello-elementor woocommerce-no-js translatepress-ru_RU elementor-default elementor-template-full-width elementor-kit-298 elementor-page elementor-page-229">
+
+
+    <a class="skip-link screen-reader-text" href="#content">Перейти к содержимому</a>
+
+    <div data-elementor-type="header" data-elementor-id="68" class="elementor elementor-68 elementor-location-header"
+        data-elementor-post-type="elementor_library">
+        <header
+            class="elementor-section elementor-top-section elementor-element elementor-element-187cd36d elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+            data-id="187cd36d" data-element_type="section"
+            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-no">
+                <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7638d077"
+                    data-id="7638d077" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-fdbf436 elementor-widget elementor-widget-theme-site-logo elementor-widget-image"
+                            data-id="fdbf436" data-element_type="widget" data-widget_type="theme-site-logo.default">
+                            <div class="elementor-widget-container">
+                                <style>
+                                    /*! elementor - v3.22.0 - 26-06-2024 */
+                                    .elementor-widget-image {
+                                        text-align: center
+                                    }
+
+                                    .elementor-widget-image a {
+                                        display: inline-block
+                                    }
+
+                                    .elementor-widget-image a img[src$=".svg"] {
+                                        width: 48px
+                                    }
+
+                                    .elementor-widget-image img {
+                                        vertical-align: middle;
+                                        display: inline-block
+                                    }
+                                </style> <a href="https://onyxtour.uz">
+                                    <img fetchpriority="high" width="3466" height="1544"
+                                        src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203466%201544'%3E%3C/svg%3E"
+                                        class="attachment-full size-full wp-image-305" alt=""
+                                        data-lazy-srcset="https://onyxtour.uz/wp-content/uploads/2022/04/1.png 3466w, https://onyxtour.uz/wp-content/uploads/2022/04/1-600x267.png 600w, https://onyxtour.uz/wp-content/uploads/2022/04/1-300x134.png 300w, https://onyxtour.uz/wp-content/uploads/2022/04/1-1024x456.png 1024w, https://onyxtour.uz/wp-content/uploads/2022/04/1-768x342.png 768w, https://onyxtour.uz/wp-content/uploads/2022/04/1-1536x684.png 1536w, https://onyxtour.uz/wp-content/uploads/2022/04/1-2048x912.png 2048w"
+                                        data-lazy-sizes="(max-width: 3466px) 100vw, 3466px"
+                                        data-lazy-src="https://onyxtour.uz/wp-content/uploads/2022/04/1.png" /><noscript><img
+                                            fetchpriority="high" width="3466" height="1544"
+                                            src="https://onyxtour.uz/wp-content/uploads/2022/04/1.png"
+                                            class="attachment-full size-full wp-image-305" alt=""
+                                            srcset="https://onyxtour.uz/wp-content/uploads/2022/04/1.png 3466w, https://onyxtour.uz/wp-content/uploads/2022/04/1-600x267.png 600w, https://onyxtour.uz/wp-content/uploads/2022/04/1-300x134.png 300w, https://onyxtour.uz/wp-content/uploads/2022/04/1-1024x456.png 1024w, https://onyxtour.uz/wp-content/uploads/2022/04/1-768x342.png 768w, https://onyxtour.uz/wp-content/uploads/2022/04/1-1536x684.png 1536w, https://onyxtour.uz/wp-content/uploads/2022/04/1-2048x912.png 2048w"
+                                            sizes="(max-width: 3466px) 100vw, 3466px" /></noscript> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7f96eba5"
+                    data-id="7f96eba5" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-3d2df10f elementor-nav-menu__align-end elementor-nav-menu--stretch elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu"
+                            data-id="3d2df10f" data-element_type="widget"
+                            data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}"
+                            data-widget_type="nav-menu.default">
+                            <div class="elementor-widget-container">
+                                <nav
+                                    class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+                                    <ul id="menu-1-3d2df10f" class="elementor-nav-menu">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-229 current_page_item menu-item-244">
+                                            <a href="https://onyxtour.uz/" aria-current="page"
+                                                class="elementor-item elementor-item-active">Главная</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706">
+                                            <a href="https://onyxtour.uz/%d1%82%d1%83%d1%80%d0%b8%d0%b7%d0%bc-%d0%bf%d1%83%d1%82%d0%b5%d1%88%d0%b5%d1%81%d1%82%d0%b2%d0%b8%d1%8f-%d0%be%d1%82%d0%b4%d1%8b%d1%85-%d1%8d%d0%ba%d1%81%d0%ba%d1%83%d1%80%d1%81%d0%b8%d0%b8/"
+                                                class="elementor-item">Туры</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245">
+                                            <a href="https://onyxtour.uz/about/" class="elementor-item">О нас</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-639">
+                                            <a href="https://onyxtour.uz/payment/" class="elementor-item">Оплата</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-270">
+                                            <a href="https://onyxtour.uz/contact/" class="elementor-item">Контакты</a>
+                                        </li>
+                                        <li
+                                            class="trp-language-switcher-container menu-item menu-item-type-post_type menu-item-object-language_switcher menu-item-651">
+                                            <a href="https://onyxtour.uz/en/" class="elementor-item"><span
+                                                    data-no-translation><img class="trp-flag-image"
+                                                        src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2018%2012'%3E%3C/svg%3E"
+                                                        width="18" height="12" alt="en_US" title="English"
+                                                        data-lazy-src="https://onyxtour.uz/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"><noscript><img
+                                                            class="trp-flag-image"
+                                                            src="https://onyxtour.uz/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"
+                                                            width="18" height="12" alt="en_US"
+                                                            title="English"></noscript></span></a>
+                                        </li>
+                                        <li
+                                            class="trp-language-switcher-container menu-item menu-item-type-post_type menu-item-object-language_switcher current-language-menu-item menu-item-652">
+                                            <a href="https://onyxtour.uz/" class="elementor-item"><span
+                                                    data-no-translation><img loading="lazy" class="trp-flag-image"
+                                                        src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2018%2012'%3E%3C/svg%3E"
+                                                        width="18" height="12" alt="ru_RU" title="Russian"
+                                                        data-lazy-src="https://onyxtour.uz/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png"><noscript><img
+                                                            loading="lazy" class="trp-flag-image"
+                                                            src="https://onyxtour.uz/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png"
+                                                            width="18" height="12" alt="ru_RU"
+                                                            title="Russian"></noscript></span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="elementor-menu-toggle" role="button" tabindex="0"
+                                    aria-label="Переключатель меню" aria-expanded="false">
+                                    <i aria-hidden="true" role="presentation"
+                                        class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i
+                                        aria-hidden="true" role="presentation"
+                                        class="elementor-menu-toggle__icon--close eicon-close"></i> <span
+                                        class="elementor-screen-only">Меню</span>
+                                </div>
+                                <nav class="elementor-nav-menu--dropdown elementor-nav-menu__container"
+                                    aria-hidden="true">
+                                    <ul id="menu-2-3d2df10f" class="elementor-nav-menu">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-229 current_page_item menu-item-244">
+                                            <a href="https://onyxtour.uz/" aria-current="page"
+                                                class="elementor-item elementor-item-active" tabindex="-1">Главная</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-706">
+                                            <a href="https://onyxtour.uz/%d1%82%d1%83%d1%80%d0%b8%d0%b7%d0%bc-%d0%bf%d1%83%d1%82%d0%b5%d1%88%d0%b5%d1%81%d1%82%d0%b2%d0%b8%d1%8f-%d0%be%d1%82%d0%b4%d1%8b%d1%85-%d1%8d%d0%ba%d1%81%d0%ba%d1%83%d1%80%d1%81%d0%b8%d0%b8/"
+                                                class="elementor-item" tabindex="-1">Туры</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245">
+                                            <a href="https://onyxtour.uz/about/" class="elementor-item" tabindex="-1">О
+                                                нас</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-639">
+                                            <a href="https://onyxtour.uz/payment/" class="elementor-item"
+                                                tabindex="-1">Оплата</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-270">
+                                            <a href="https://onyxtour.uz/contact/" class="elementor-item"
+                                                tabindex="-1">Контакты</a>
+                                        </li>
+                                        <li
+                                            class="trp-language-switcher-container menu-item menu-item-type-post_type menu-item-object-language_switcher menu-item-651">
+                                            <a href="https://onyxtour.uz/en/" class="elementor-item" tabindex="-1"><span
+                                                    data-no-translation><img class="trp-flag-image"
+                                                        src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2018%2012'%3E%3C/svg%3E"
+                                                        width="18" height="12" alt="en_US" title="English"
+                                                        data-lazy-src="https://onyxtour.uz/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"><noscript><img
+                                                            class="trp-flag-image"
+                                                            src="https://onyxtour.uz/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"
+                                                            width="18" height="12" alt="en_US"
+                                                            title="English"></noscript></span></a>
+                                        </li>
+                                        <li
+                                            class="trp-language-switcher-container menu-item menu-item-type-post_type menu-item-object-language_switcher current-language-menu-item menu-item-652">
+                                            <a href="https://onyxtour.uz/" class="elementor-item" tabindex="-1"><span
+                                                    data-no-translation><img loading="lazy" class="trp-flag-image"
+                                                        src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2018%2012'%3E%3C/svg%3E"
+                                                        width="18" height="12" alt="ru_RU" title="Russian"
+                                                        data-lazy-src="https://onyxtour.uz/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png"><noscript><img
+                                                            loading="lazy" class="trp-flag-image"
+                                                            src="https://onyxtour.uz/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png"
+                                                            width="18" height="12" alt="ru_RU"
+                                                            title="Russian"></noscript></span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div data-elementor-type="wp-page" data-elementor-id="229" class="elementor elementor-229"
+        data-elementor-post-type="page">
+        <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-2beb4e30 elementor-section-full_width elementor-section-items-stretch elementor-section-content-middle elementor-section-height-min-height elementor-section-stretched elementor-section-height-default"
+            data-id="2beb4e30" data-element_type="section"
+            data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1dbf234d elementor-invisible"
+                    data-id="1dbf234d" data-element_type="column"
+                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeIn&quot;}">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <section
+                            class="elementor-section elementor-inner-section elementor-element elementor-element-4d1ac016 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="4d1ac016" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-5ff46164"
+                                    data-id="5ff46164" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-38abad1d elementor-invisible elementor-widget elementor-widget-heading"
+                                            data-id="38abad1d" data-element_type="widget"
+                                            data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <style>
+                                                    /*! elementor - v3.22.0 - 26-06-2024 */
+                                                    .elementor-heading-title {
+                                                        padding: 0;
+                                                        margin: 0;
+                                                        line-height: 1
+                                                    }
+
+                                                    .elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a {
+                                                        color: inherit;
+                                                        font-size: inherit;
+                                                        line-height: inherit
+                                                    }
+
+                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-small {
+                                                        font-size: 15px
+                                                    }
+
+                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-medium {
+                                                        font-size: 19px
+                                                    }
+
+                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-large {
+                                                        font-size: 29px
+                                                    }
+
+                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-xl {
+                                                        font-size: 39px
+                                                    }
+
+                                                    .elementor-widget-heading .elementor-heading-title.elementor-size-xxl {
+                                                        font-size: 59px
+                                                    }
+                                                </style>
+                                                <h1 class="elementor-heading-title elementor-size-default">Путешествуй с
+                                                    OnyxTour</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-2739e8c elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+            data-id="2739e8c" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-aba37e9"
+                    data-id="aba37e9" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-4c4a1fe0 elementor-invisible elementor-widget elementor-widget-heading"
+                            data-id="4c4a1fe0" data-element_type="widget"
+                            data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}"
+                            data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Рекомендуемые тур пакеты
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-72d59518 elementor-invisible elementor-widget elementor-widget-text-editor"
+                            data-id="72d59518" data-element_type="widget"
+                            data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}"
+                            data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                <style>
+                                    /*! elementor - v3.22.0 - 26-06-2024 */
+                                    .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
+                                        background-color: #69727d;
+                                        color: #fff
+                                    }
+
+                                    .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
+                                        color: #69727d;
+                                        border: 3px solid;
+                                        background-color: transparent
+                                    }
+
+                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
+                                        margin-top: 8px
+                                    }
+
+                                    .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
+                                        width: 1em;
+                                        height: 1em
+                                    }
+
+                                    .elementor-widget-text-editor .elementor-drop-cap {
+                                        float: left;
+                                        text-align: center;
+                                        line-height: 1;
+                                        font-size: 50px
+                                    }
+
+                                    .elementor-widget-text-editor .elementor-drop-cap-letter {
+                                        display: inline-block
+                                    }
+                                </style>
+                                <p>Ничто так не развивает ум, как путешествие.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-7f4bcf58 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle"
+            data-id="7f4bcf58" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-no">
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-284cd07 elementor-invisible"
+                    data-id="284cd07" data-element_type="column"
+                    data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;}">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-6917f4ca elementor-widget elementor-widget-image"
+                            data-id="6917f4ca" data-element_type="widget" data-widget_type="image.default">
+                            <div class="elementor-widget-container">
+                                <img loading="lazy" decoding="async" width="800" height="534"
+                                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20534'%3E%3C/svg%3E"
+                                    class="attachment-large size-large wp-image-279" alt=""
+                                    data-lazy-srcset="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-1024x683.jpg 1024w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-600x400.jpg 600w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-300x200.jpg 300w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-768x512.jpg 768w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12.jpg 1440w"
+                                    data-lazy-sizes="(max-width: 800px) 100vw, 800px"
+                                    data-lazy-src="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-1024x683.jpg" /><noscript><img
+                                        loading="lazy" decoding="async" width="800" height="534"
+                                        src="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-1024x683.jpg"
+                                        class="attachment-large size-large wp-image-279" alt=""
+                                        srcset="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-1024x683.jpg 1024w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-600x400.jpg 600w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-300x200.jpg 300w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12-768x512.jpg 768w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-12.jpg 1440w"
+                                        sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-7aa6f723 elementor-star-rating--align-right elementor-widget__width-auto elementor-absolute elementor--star-style-star_fontawesome elementor-widget elementor-widget-star-rating"
+                            data-id="7aa6f723" data-element_type="widget"
+                            data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                            data-widget_type="star-rating.default">
+                            <div class="elementor-widget-container">
+                                <style>
+                                    /*! elementor - v3.22.0 - 26-06-2024 */
+                                    @charset "UTF-8";
+
+                                    .elementor-star-rating {
+                                        color: #ccd6df;
+                                        font-family: eicons;
+                                        display: inline-block
+                                    }
+
+                                    .elementor-star-rating i {
+                                        display: inline-block;
+                                        position: relative;
+                                        font-style: normal;
+                                        cursor: default
+                                    }
+
+                                    .elementor-star-rating i:before {
+                                        content: "\e934";
+                                        display: block;
+                                        font-size: inherit;
+                                        font-family: inherit;
+                                        position: absolute;
+                                        overflow: hidden;
+                                        color: #f0ad4e;
+                                        top: 0;
+                                        left: 0
+                                    }
+
+                                    .elementor-star-rating .elementor-star-empty:before {
+                                        content: none
+                                    }
+
+                                    .elementor-star-rating .elementor-star-1:before {
+                                        width: 10%
+                                    }
+
+                                    .elementor-star-rating .elementor-star-2:before {
+                                        width: 20%
+                                    }
+
+                                    .elementor-star-rating .elementor-star-3:before {
+                                        width: 30%
+                                    }
+
+                                    .elementor-star-rating .elementor-star-4:before {
+                                        width: 40%
+                                    }
+
+                                    .elementor-star-rating .elementor-star-5:before {
+                                        width: 50%
+                                    }
+
+                                    .elementor-star-rating .elementor-star-6:before {
+                                        width: 60%
+                                    }
+
+                                    .elementor-star-rating .elementor-star-7:before {
+                                        width: 70%
+                                    }
+
+                                    .elementor-star-rating .elementor-star-8:before {
+                                        width: 80%
+                                    }
+
+                                    .elementor-star-rating .elementor-star-9:before {
+                                        width: 90%
+                                    }
+
+                                    .elementor-star-rating__wrapper {
+                                        display: flex;
+                                        align-items: center
+                                    }
+
+                                    .elementor-star-rating__title {
+                                        margin-inline-end: 10px
+                                    }
+
+                                    .elementor-star-rating--align-right .elementor-star-rating__wrapper {
+                                        text-align: right;
+                                        justify-content: flex-end
+                                    }
+
+                                    .elementor-star-rating--align-left .elementor-star-rating__wrapper {
+                                        text-align: left;
+                                        justify-content: flex-start
+                                    }
+
+                                    .elementor-star-rating--align-center .elementor-star-rating__wrapper {
+                                        text-align: center;
+                                        justify-content: center
+                                    }
+
+                                    .elementor-star-rating--align-justify .elementor-star-rating__title {
+                                        margin-inline-end: auto
+                                    }
+
+                                    @media (max-width:1024px) {
+                                        .elementor-star-rating-tablet--align-right .elementor-star-rating__wrapper {
+                                            text-align: right;
+                                            justify-content: flex-end
+                                        }
+
+                                        .elementor-star-rating-tablet--align-left .elementor-star-rating__wrapper {
+                                            text-align: left;
+                                            justify-content: flex-start
+                                        }
+
+                                        .elementor-star-rating-tablet--align-center .elementor-star-rating__wrapper {
+                                            text-align: center;
+                                            justify-content: center
+                                        }
+
+                                        .elementor-star-rating-tablet--align-justify .elementor-star-rating__title {
+                                            margin-inline-end: auto
+                                        }
+                                    }
+
+                                    @media (max-width:767px) {
+                                        .elementor-star-rating-mobile--align-right .elementor-star-rating__wrapper {
+                                            text-align: right;
+                                            justify-content: flex-end
+                                        }
+
+                                        .elementor-star-rating-mobile--align-left .elementor-star-rating__wrapper {
+                                            text-align: left;
+                                            justify-content: flex-start
+                                        }
+
+                                        .elementor-star-rating-mobile--align-center .elementor-star-rating__wrapper {
+                                            text-align: center;
+                                            justify-content: center
+                                        }
+
+                                        .elementor-star-rating-mobile--align-justify .elementor-star-rating__title {
+                                            margin-inline-end: auto
+                                        }
+                                    }
+
+                                    .last-star {
+                                        letter-spacing: 0
+                                    }
+
+                                    .elementor--star-style-star_unicode .elementor-star-rating {
+                                        font-family: Arial, Helvetica, sans-serif
+                                    }
+
+                                    .elementor--star-style-star_unicode .elementor-star-rating i:not(.elementor-star-empty):before {
+                                        content: "★"
+                                    }
+                                </style>
+                                <div class="elementor-star-rating__wrapper">
+                                    <div class="elementor-star-rating" title="5/5" itemtype="http://schema.org/Rating"
+                                        itemscope="" itemprop="reviewRating"><i
+                                            class="elementor-star-full">&#xE934;</i><i
+                                            class="elementor-star-full">&#xE934;</i><i
+                                            class="elementor-star-full">&#xE934;</i><i
+                                            class="elementor-star-full">&#xE934;</i><i
+                                            class="elementor-star-full">&#xE934;</i> <span itemprop="ratingValue"
+                                            class="elementor-screen-only">5/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-690ab989 elementor-widget elementor-widget-heading"
+                            data-id="690ab989" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h4 class="elementor-heading-title elementor-size-default">Турецкая Ривьера​</h4>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-13d90265 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                            data-id="13d90265" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="fas fa-map-marker-alt"></i> </span>
+                                        <span class="elementor-icon-list-text">Турция</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="far fa-clock"></i> </span>
+                                        <span class="elementor-icon-list-text">8 дней </span>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="far fa-compass"></i> </span>
+                                        <span class="elementor-icon-list-text">Classic</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-4ff11b2f elementor-widget elementor-widget-text-editor"
+                            data-id="4ff11b2f" data-element_type="widget" data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                <p>Комбинированный групповой тур в Турцию. Все отели по маршруту 5 звёзд. В Анталии
+                                    отель по системе Всё Включено!</p>
+                            </div>
+                        </div>
+                        <section
+                            class="elementor-section elementor-inner-section elementor-element elementor-element-f4ea7a0 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="f4ea7a0" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-62fc5c59"
+                                    data-id="62fc5c59" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-516e10b9 elementor-widget elementor-widget-heading"
+                                            data-id="516e10b9" data-element_type="widget"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <span class="elementor-heading-title elementor-size-default">$549 /чел.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-2e563a30"
+                                    data-id="2e563a30" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-47de753b elementor-align-justify elementor-widget elementor-widget-button"
+                                            data-id="47de753b" data-element_type="widget"
+                                            data-widget_type="button.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-button-wrapper">
+                                                    <a class="elementor-button elementor-button-link elementor-size-xs"
+                                                        href="#">
+                                                        <span class="elementor-button-content-wrapper">
+                                                            <span class="elementor-button-text">Узнать больше</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-2d8f87ab elementor-invisible"
+                    data-id="2d8f87ab" data-element_type="column"
+                    data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:300}">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-5d8e0e46 elementor-widget elementor-widget-image"
+                            data-id="5d8e0e46" data-element_type="widget" data-widget_type="image.default">
+                            <div class="elementor-widget-container">
+                                <img loading="lazy" decoding="async" width="800" height="534"
+                                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20534'%3E%3C/svg%3E"
+                                    class="attachment-large size-large wp-image-286" alt=""
+                                    data-lazy-srcset="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-1024x683.jpg 1024w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-600x400.jpg 600w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-300x200.jpg 300w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-768x512.jpg 768w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13.jpg 1440w"
+                                    data-lazy-sizes="(max-width: 800px) 100vw, 800px"
+                                    data-lazy-src="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-1024x683.jpg" /><noscript><img
+                                        loading="lazy" decoding="async" width="800" height="534"
+                                        src="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-1024x683.jpg"
+                                        class="attachment-large size-large wp-image-286" alt=""
+                                        srcset="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-1024x683.jpg 1024w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-600x400.jpg 600w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-300x200.jpg 300w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13-768x512.jpg 768w, https://onyxtour.uz/wp-content/uploads/2022/04/Travex-13.jpg 1440w"
+                                        sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-1732949e elementor-star-rating--align-right elementor-widget__width-auto elementor-absolute elementor--star-style-star_fontawesome elementor-widget elementor-widget-star-rating"
+                            data-id="1732949e" data-element_type="widget"
+                            data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                            data-widget_type="star-rating.default">
+                            <div class="elementor-widget-container">
+
+                                <div class="elementor-star-rating__wrapper">
+                                    <div class="elementor-star-rating" title="5/5" itemtype="http://schema.org/Rating"
+                                        itemscope="" itemprop="reviewRating"><i
+                                            class="elementor-star-full">&#xE933;</i><i
+                                            class="elementor-star-full">&#xE933;</i><i
+                                            class="elementor-star-full">&#xE933;</i><i
+                                            class="elementor-star-full">&#xE933;</i><i
+                                            class="elementor-star-full">&#xE933;</i> <span itemprop="ratingValue"
+                                            class="elementor-screen-only">5/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-285e7c03 elementor-widget elementor-widget-heading"
+                            data-id="285e7c03" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h4 class="elementor-heading-title elementor-size-default">Великолепный Век</h4>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-33f62fdd elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                            data-id="33f62fdd" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="fas fa-map-marker-alt"></i> </span>
+                                        <span class="elementor-icon-list-text">Турция</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="far fa-clock"></i> </span>
+                                        <span class="elementor-icon-list-text">8 дней </span>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="far fa-compass"></i> </span>
+                                        <span class="elementor-icon-list-text">Classic</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-3a6cf063 elementor-widget elementor-widget-text-editor"
+                            data-id="3a6cf063" data-element_type="widget" data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                <p>Загадочный и величественный, шумный и сказочно красивый, Стамбул — это мост между
+                                    Европой и Азией. </p>
+                            </div>
+                        </div>
+                        <section
+                            class="elementor-section elementor-inner-section elementor-element elementor-element-36fbdc1b elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="36fbdc1b" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-187ca9c5"
+                                    data-id="187ca9c5" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-7b9c62cb elementor-widget elementor-widget-heading"
+                                            data-id="7b9c62cb" data-element_type="widget"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <span
+                                                    class="elementor-heading-title elementor-size-default">$670/чел.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-66a49a05"
+                                    data-id="66a49a05" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-56bd423d elementor-align-justify elementor-widget elementor-widget-button"
+                                            data-id="56bd423d" data-element_type="widget"
+                                            data-widget_type="button.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-button-wrapper">
+                                                    <a class="elementor-button elementor-button-link elementor-size-xs"
+                                                        href="#">
+                                                        <span class="elementor-button-content-wrapper">
+                                                            <span class="elementor-button-text">Узнать больше</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-68438517 elementor-invisible"
+                    data-id="68438517" data-element_type="column"
+                    data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:600}">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-edb268d elementor-widget elementor-widget-image"
+                            data-id="edb268d" data-element_type="widget" data-widget_type="image.default">
+                            <div class="elementor-widget-container">
+                                <img width="1440" height="960" decoding="async"
+                                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20960'%3E%3C/svg%3E"
+                                    title="" alt="" loading="lazy"
+                                    data-lazy-src="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-10.jpg" /><noscript><img
+                                        width="1440" height="960" decoding="async"
+                                        src="https://onyxtour.uz/wp-content/uploads/2022/04/Travex-10.jpg" title=""
+                                        alt="" loading="lazy" /></noscript>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-24f4f122 elementor-star-rating--align-right elementor-widget__width-auto elementor-absolute elementor--star-style-star_fontawesome elementor-widget elementor-widget-star-rating"
+                            data-id="24f4f122" data-element_type="widget"
+                            data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                            data-widget_type="star-rating.default">
+                            <div class="elementor-widget-container">
+
+                                <div class="elementor-star-rating__wrapper">
+                                    <div class="elementor-star-rating" title="5/5" itemtype="http://schema.org/Rating"
+                                        itemscope="" itemprop="reviewRating"><i
+                                            class="elementor-star-full">&#xE933;</i><i
+                                            class="elementor-star-full">&#xE933;</i><i
+                                            class="elementor-star-full">&#xE933;</i><i
+                                            class="elementor-star-full">&#xE933;</i><i
+                                            class="elementor-star-full">&#xE933;</i> <span itemprop="ratingValue"
+                                            class="elementor-screen-only">5/5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-647ec8f4 elementor-widget elementor-widget-heading"
+                            data-id="647ec8f4" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h4 class="elementor-heading-title elementor-size-default">Турецкие Каникулы</h4>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-13e4fdd6 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                            data-id="13e4fdd6" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="fas fa-map-marker-alt"></i> </span>
+                                        <span class="elementor-icon-list-text">Турция</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="far fa-clock"></i> </span>
+                                        <span class="elementor-icon-list-text">9 дней </span>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="far fa-compass"></i> </span>
+                                        <span class="elementor-icon-list-text">Classic</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-2ed143e6 elementor-widget elementor-widget-text-editor"
+                            data-id="2ed143e6" data-element_type="widget" data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                <p>Релакс тур по Турции, включающий в себя отдых в Seven Seas Gravel Select – 5* отеле в
+                                    Анталии</p>
+                            </div>
+                        </div>
+                        <section
+                            class="elementor-section elementor-inner-section elementor-element elementor-element-bc5db4f elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="bc5db4f" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-7435f76"
+                                    data-id="7435f76" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-59b9b4a3 elementor-widget elementor-widget-heading"
+                                            data-id="59b9b4a3" data-element_type="widget"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <span
+                                                    class="elementor-heading-title elementor-size-default">$1159/чел.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-216e7bdb"
+                                    data-id="216e7bdb" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-67467617 elementor-align-justify elementor-widget elementor-widget-button"
+                                            data-id="67467617" data-element_type="widget"
+                                            data-widget_type="button.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-button-wrapper">
+                                                    <a class="elementor-button elementor-button-link elementor-size-xs"
+                                                        href="#">
+                                                        <span class="elementor-button-content-wrapper">
+                                                            <span class="elementor-button-text">Узнать больше</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-c1ca9c8 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+            data-id="c1ca9c8" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b3b47c2"
+                    data-id="b3b47c2" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-6c839c2 elementor-widget elementor-widget-heading"
+                            data-id="6c839c2" data-element_type="widget" data-widget_type="heading.default">
+
+                        </div>
+                        <div class="elementor-element elementor-element-da2a433 elementor-widget elementor-widget-shortcode"
+                            data-id="da2a433" data-element_type="widget" data-widget_type="shortcode.default">
+                            <div class="elementor-widget-container">
+                                <div class="elementor-shortcode">
+                                    <div id="instagram-gallery-feed-0" class="instagram-gallery-feed" {data-feed="{}}">
+                                        <!-- <FeedContainer/> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-34cbf880 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle"
+            data-id="34cbf880" data-element_type="section"
+            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-background-overlay"></div>
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-12636304"
+                    data-id="12636304" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-6ceefa5a elementor-widget elementor-widget-heading"
+                            data-id="6ceefa5a" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Будь первым в новом
+                                    путешествии
+                                </h2>
+                            </div>
+                        </div>
+                        <section
+                            class="elementor-section elementor-inner-section elementor-element elementor-element-3b15a5a1 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="3b15a5a1" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-935ab71"
+                                    data-id="935ab71" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-12b4920c elementor-widget elementor-widget-text-editor"
+                                            data-id="12b4920c" data-element_type="widget"
+                                            data-widget_type="text-editor.default">
+                                            <div class="elementor-widget-container">
+                                                <p>Мир &#8212; это книга, и те, кто не путешествуют, успевают прочесть
+                                                    лишь первую страницу.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="elementor-section elementor-inner-section elementor-element elementor-element-57722e30 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="57722e30" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-2a4f6dc2"
+                                    data-id="2a4f6dc2" data-element_type="column">
+                                    <div class="elementor-widget-wrap">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div data-elementor-type="footer" data-elementor-id="14" class="elementor elementor-14 elementor-location-footer"
+        data-elementor-post-type="elementor_library">
+        <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-2474fec2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+            data-id="2474fec2" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-6988c31e"
+                    data-id="6988c31e" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-d109e53 elementor-widget elementor-widget-image"
+                            data-id="d109e53" data-element_type="widget" data-widget_type="image.default">
+                            <div class="elementor-widget-container">
+                                <img width="300" height="134"
+                                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20134'%3E%3C/svg%3E"
+                                    class="attachment-medium size-medium wp-image-305" alt=""
+                                    data-lazy-srcset="https://onyxtour.uz/wp-content/uploads/2022/04/1-300x134.png 300w, https://onyxtour.uz/wp-content/uploads/2022/04/1-600x267.png 600w, https://onyxtour.uz/wp-content/uploads/2022/04/1-1024x456.png 1024w, https://onyxtour.uz/wp-content/uploads/2022/04/1-768x342.png 768w, https://onyxtour.uz/wp-content/uploads/2022/04/1-1536x684.png 1536w, https://onyxtour.uz/wp-content/uploads/2022/04/1-2048x912.png 2048w"
+                                    data-lazy-sizes="(max-width: 300px) 100vw, 300px"
+                                    data-lazy-src="https://onyxtour.uz/wp-content/uploads/2022/04/1-300x134.png" /><noscript><img
+                                        width="300" height="134"
+                                        src="https://onyxtour.uz/wp-content/uploads/2022/04/1-300x134.png"
+                                        class="attachment-medium size-medium wp-image-305" alt=""
+                                        srcset="https://onyxtour.uz/wp-content/uploads/2022/04/1-300x134.png 300w, https://onyxtour.uz/wp-content/uploads/2022/04/1-600x267.png 600w, https://onyxtour.uz/wp-content/uploads/2022/04/1-1024x456.png 1024w, https://onyxtour.uz/wp-content/uploads/2022/04/1-768x342.png 768w, https://onyxtour.uz/wp-content/uploads/2022/04/1-1536x684.png 1536w, https://onyxtour.uz/wp-content/uploads/2022/04/1-2048x912.png 2048w"
+                                        sizes="(max-width: 300px) 100vw, 300px" /></noscript>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-447d04f4 elementor-shape-rounded elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons"
+                            data-id="447d04f4" data-element_type="widget" data-widget_type="social-icons.default">
+                            <div class="elementor-widget-container">
+                                <style>
+                                    /*! elementor - v3.22.0 - 26-06-2024 */
+                                    .elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,
+                                    .elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,
+                                    .elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container {
+                                        line-height: 1;
+                                        font-size: 0
+                                    }
+
+                                    .elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid {
+                                        display: inline-grid
+                                    }
+
+                                    .elementor-widget-social-icons .elementor-grid {
+                                        grid-column-gap: var(--grid-column-gap, 5px);
+                                        grid-row-gap: var(--grid-row-gap, 5px);
+                                        grid-template-columns: var(--grid-template-columns);
+                                        justify-content: var(--justify-content, center);
+                                        justify-items: var(--justify-content, center)
+                                    }
+
+                                    .elementor-icon.elementor-social-icon {
+                                        font-size: var(--icon-size, 25px);
+                                        line-height: var(--icon-size, 25px);
+                                        width: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em));
+                                        height: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em))
+                                    }
+
+                                    .elementor-social-icon {
+                                        --e-social-icon-icon-color: #fff;
+                                        display: inline-flex;
+                                        background-color: #69727d;
+                                        align-items: center;
+                                        justify-content: center;
+                                        text-align: center;
+                                        cursor: pointer
+                                    }
+
+                                    .elementor-social-icon i {
+                                        color: var(--e-social-icon-icon-color)
+                                    }
+
+                                    .elementor-social-icon svg {
+                                        fill: var(--e-social-icon-icon-color)
+                                    }
+
+                                    .elementor-social-icon:last-child {
+                                        margin: 0
+                                    }
+
+                                    .elementor-social-icon:hover {
+                                        opacity: .9;
+                                        color: #fff
+                                    }
+
+                                    .elementor-social-icon-android {
+                                        background-color: #a4c639
+                                    }
+
+                                    .elementor-social-icon-apple {
+                                        background-color: #999
+                                    }
+
+                                    .elementor-social-icon-behance {
+                                        background-color: #1769ff
+                                    }
+
+                                    .elementor-social-icon-bitbucket {
+                                        background-color: #205081
+                                    }
+
+                                    .elementor-social-icon-codepen {
+                                        background-color: #000
+                                    }
+
+                                    .elementor-social-icon-delicious {
+                                        background-color: #39f
+                                    }
+
+                                    .elementor-social-icon-deviantart {
+                                        background-color: #05cc47
+                                    }
+
+                                    .elementor-social-icon-digg {
+                                        background-color: #005be2
+                                    }
+
+                                    .elementor-social-icon-dribbble {
+                                        background-color: #ea4c89
+                                    }
+
+                                    .elementor-social-icon-elementor {
+                                        background-color: #d30c5c
+                                    }
+
+                                    .elementor-social-icon-envelope {
+                                        background-color: #ea4335
+                                    }
+
+                                    .elementor-social-icon-facebook,
+                                    .elementor-social-icon-facebook-f {
+                                        background-color: #3b5998
+                                    }
+
+                                    .elementor-social-icon-flickr {
+                                        background-color: #0063dc
+                                    }
+
+                                    .elementor-social-icon-foursquare {
+                                        background-color: #2d5be3
+                                    }
+
+                                    .elementor-social-icon-free-code-camp,
+                                    .elementor-social-icon-freecodecamp {
+                                        background-color: #006400
+                                    }
+
+                                    .elementor-social-icon-github {
+                                        background-color: #333
+                                    }
+
+                                    .elementor-social-icon-gitlab {
+                                        background-color: #e24329
+                                    }
+
+                                    .elementor-social-icon-globe {
+                                        background-color: #69727d
+                                    }
+
+                                    .elementor-social-icon-google-plus,
+                                    .elementor-social-icon-google-plus-g {
+                                        background-color: #dd4b39
+                                    }
+
+                                    .elementor-social-icon-houzz {
+                                        background-color: #7ac142
+                                    }
+
+                                    .elementor-social-icon-instagram {
+                                        background-color: #262626
+                                    }
+
+                                    .elementor-social-icon-jsfiddle {
+                                        background-color: #487aa2
+                                    }
+
+                                    .elementor-social-icon-link {
+                                        background-color: #818a91
+                                    }
+
+                                    .elementor-social-icon-linkedin,
+                                    .elementor-social-icon-linkedin-in {
+                                        background-color: #0077b5
+                                    }
+
+                                    .elementor-social-icon-medium {
+                                        background-color: #00ab6b
+                                    }
+
+                                    .elementor-social-icon-meetup {
+                                        background-color: #ec1c40
+                                    }
+
+                                    .elementor-social-icon-mixcloud {
+                                        background-color: #273a4b
+                                    }
+
+                                    .elementor-social-icon-odnoklassniki {
+                                        background-color: #f4731c
+                                    }
+
+                                    .elementor-social-icon-pinterest {
+                                        background-color: #bd081c
+                                    }
+
+                                    .elementor-social-icon-product-hunt {
+                                        background-color: #da552f
+                                    }
+
+                                    .elementor-social-icon-reddit {
+                                        background-color: #ff4500
+                                    }
+
+                                    .elementor-social-icon-rss {
+                                        background-color: #f26522
+                                    }
+
+                                    .elementor-social-icon-shopping-cart {
+                                        background-color: #4caf50
+                                    }
+
+                                    .elementor-social-icon-skype {
+                                        background-color: #00aff0
+                                    }
+
+                                    .elementor-social-icon-slideshare {
+                                        background-color: #0077b5
+                                    }
+
+                                    .elementor-social-icon-snapchat {
+                                        background-color: #fffc00
+                                    }
+
+                                    .elementor-social-icon-soundcloud {
+                                        background-color: #f80
+                                    }
+
+                                    .elementor-social-icon-spotify {
+                                        background-color: #2ebd59
+                                    }
+
+                                    .elementor-social-icon-stack-overflow {
+                                        background-color: #fe7a15
+                                    }
+
+                                    .elementor-social-icon-steam {
+                                        background-color: #00adee
+                                    }
+
+                                    .elementor-social-icon-stumbleupon {
+                                        background-color: #eb4924
+                                    }
+
+                                    .elementor-social-icon-telegram {
+                                        background-color: #2ca5e0
+                                    }
+
+                                    .elementor-social-icon-threads {
+                                        background-color: #000
+                                    }
+
+                                    .elementor-social-icon-thumb-tack {
+                                        background-color: #1aa1d8
+                                    }
+
+                                    .elementor-social-icon-tripadvisor {
+                                        background-color: #589442
+                                    }
+
+                                    .elementor-social-icon-tumblr {
+                                        background-color: #35465c
+                                    }
+
+                                    .elementor-social-icon-twitch {
+                                        background-color: #6441a5
+                                    }
+
+                                    .elementor-social-icon-twitter {
+                                        background-color: #1da1f2
+                                    }
+
+                                    .elementor-social-icon-viber {
+                                        background-color: #665cac
+                                    }
+
+                                    .elementor-social-icon-vimeo {
+                                        background-color: #1ab7ea
+                                    }
+
+                                    .elementor-social-icon-vk {
+                                        background-color: #45668e
+                                    }
+
+                                    .elementor-social-icon-weibo {
+                                        background-color: #dd2430
+                                    }
+
+                                    .elementor-social-icon-weixin {
+                                        background-color: #31a918
+                                    }
+
+                                    .elementor-social-icon-whatsapp {
+                                        background-color: #25d366
+                                    }
+
+                                    .elementor-social-icon-wordpress {
+                                        background-color: #21759b
+                                    }
+
+                                    .elementor-social-icon-x-twitter {
+                                        background-color: #000
+                                    }
+
+                                    .elementor-social-icon-xing {
+                                        background-color: #026466
+                                    }
+
+                                    .elementor-social-icon-yelp {
+                                        background-color: #af0606
+                                    }
+
+                                    .elementor-social-icon-youtube {
+                                        background-color: #cd201f
+                                    }
+
+                                    .elementor-social-icon-500px {
+                                        background-color: #0099e5
+                                    }
+
+                                    .elementor-shape-rounded .elementor-icon.elementor-social-icon {
+                                        border-radius: 10%
+                                    }
+
+                                    .elementor-shape-circle .elementor-icon.elementor-social-icon {
+                                        border-radius: 50%
+                                    }
+                                </style>
+                                <div class="elementor-social-icons-wrapper elementor-grid">
+                                    <span class="elementor-grid-item">
+                                        <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-e350209"
+                                            href="https://www.instagram.com/onyx.tour/" target="_blank">
+                                            <span class="elementor-screen-only">Instagram</span>
+                                            <i class="fab fa-instagram"></i> </a>
+                                    </span>
+                                    <span class="elementor-grid-item">
+                                        <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-6d269b3"
+                                            href="https://www.facebook.com/Onyx.tour.operator" target="_blank">
+                                            <span class="elementor-screen-only">Facebook</span>
+                                            <i class="fab fa-facebook"></i> </a>
+                                    </span>
+                                    <span class="elementor-grid-item">
+                                        <a class="elementor-icon elementor-social-icon elementor-social-icon-telegram elementor-repeater-item-bc4fa1d"
+                                            href="https://t.me/onyxtour" target="_blank">
+                                            <span class="elementor-screen-only">Telegram</span>
+                                            <i class="fab fa-telegram"></i> </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-91713bd"
+                    data-id="91713bd" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-d715579 elementor-widget elementor-widget-heading"
+                            data-id="d715579" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h5 class="elementor-heading-title elementor-size-default">Контакты</h5>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-99cda1b elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                            data-id="99cda1b" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items">
+                                    <li class="elementor-icon-list-item">
+                                        <span class="elementor-icon-list-icon">
+                                            <i aria-hidden="true" class="fas fa-map-marker-alt"></i> </span>
+                                        <span class="elementor-icon-list-text">Sharof Rashidov 60-uy, Узбекистан</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item">
+                                        <a href="tel:+998970605550">
+
+                                            <span class="elementor-icon-list-icon">
+                                                <i aria-hidden="true" class="fas fa-phone-alt"></i> </span>
+                                            <span class="elementor-icon-list-text">+998 97 060 55 55</span>
+                                        </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item">
+                                        <a href="tel:+998970605550">
+
+                                            <span class="elementor-icon-list-icon">
+                                                <i aria-hidden="true" class="fas fa-phone-alt"></i> </span>
+                                            <span class="elementor-icon-list-text">+998 97 014 55 55</span>
+                                        </a>
+                                    </li>
+                                    <li class="elementor-icon-list-item">
+                                        <a href="mailto:info@onyxtour.uz">
+
+                                            <span class="elementor-icon-list-icon">
+                                                <i aria-hidden="true" class="fas fa-envelope"></i> </span>
+                                            <span class="elementor-icon-list-text"> info@onyxtour.uz</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7a746aa8 elementor-hidden-mobile"
+                    data-id="7a746aa8" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-5ff01488 elementor-widget elementor-widget-heading"
+                            data-id="5ff01488" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h5 class="elementor-heading-title elementor-size-default">Навигация</h5>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-3073347f elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                            data-id="3073347f" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items">
+                                    <li class="elementor-icon-list-item">
+                                        <span class="elementor-icon-list-text">About</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item">
+                                        <span class="elementor-icon-list-text">Service</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item">
+                                        <span class="elementor-icon-list-text">Destination</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item">
+                                        <span class="elementor-icon-list-text">Tours</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item">
+                                        <a href="https://onyxtour.uz/blog/">
+
+                                            <span class="elementor-icon-list-text">Blog</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-10907c44 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+            data-id="10907c44" data-element_type="section"
+            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2d9fcddc"
+                    data-id="2d9fcddc" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-19d1e4da elementor-widget elementor-widget-heading"
+                            data-id="19d1e4da" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <span class="elementor-heading-title elementor-size-default">© 2023 OnyxTour. Все права
+                                    защищены</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-3f4334e8"
+                    data-id="3f4334e8" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-5422b8ef elementor-icon-list--layout-inline elementor-align-right elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                            data-id="5422b8ef" data-element_type="widget" data-widget_type="icon-list.default">
+                            <div class="elementor-widget-container">
+                                <ul class="elementor-icon-list-items elementor-inline-items">
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-text">Условия эксплуатации</span>
+                                    </li>
+                                    <li class="elementor-icon-list-item elementor-inline-item">
+                                        <span class="elementor-icon-list-text">Политика конфиденциальности</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <template id="tp-language" data-tp-language="ru_RU"></template>
+    <div data-elementor-type="popup" data-elementor-id="1466" class="elementor elementor-1466 elementor-location-popup"
+        data-elementor-settings="{&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}"
+        data-elementor-post-type="elementor_library">
+        <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-ff501d4 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+            data-id="ff501d4" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8134bb8"
+                    data-id="8134bb8" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-add08dc elementor-widget elementor-widget-heading"
+                            data-id="add08dc" data-element_type="widget" data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">Success</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Meta Pixel Event Code -->
+    <script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+        if( "fb_pxl_code" in event.detail.apiResponse){
+          eval(event.detail.apiResponse.fb_pxl_code);
+        }
+      }, false );
+    </script>
+    <!-- End Meta Pixel Event Code -->
+    <div id='fb-pxl-ajax-code'></div>
+    <script type="rocketlazyloadscript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+
+
+    <script type="rocketlazyloadscript" src="https://onyxtour.uz/wp-includes/js/imagesloaded.min.js?ver=5.0.0"
+        id="imagesloaded-js" defer></script>
+    <script type="rocketlazyloadscript" src="https://onyxtour.uz/wp-includes/js/masonry.min.js?ver=4.2.2"
+        id="masonry-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/insta-gallery/assets/frontend/swiper/swiper.min.js?ver=4.3.8"
+        id="qligg-swiper-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=9.0.2"
+        id="sourcebuster-js-js" defer></script>
+    <script id="wc-order-attribution-js-extra">
+        var wc_order_attribution = { "params": { "lifetime": 1.0e-5, "session": 30, "base64": false, "ajaxurl": "https:\/\/onyxtour.uz\/wp-admin\/admin-ajax.php", "prefix": "wc_order_attribution_", "allowTracking": true }, "fields": { "source_type": "current.typ", "referrer": "current_add.rf", "utm_campaign": "current.cmp", "utm_source": "current.src", "utm_medium": "current.mdm", "utm_content": "current.cnt", "utm_id": "current.id", "utm_term": "current.trm", "utm_source_platform": "current.plt", "utm_creative_format": "current.fmt", "utm_marketing_tactic": "current.tct", "session_entry": "current_add.ep", "session_start_time": "current_add.fd", "session_pages": "session.pgs", "session_count": "udata.vst", "user_agent": "udata.uag" } };
+    </script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.0.2"
+        id="wc-order-attribution-js" defer></script>
+    <script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+    <script id="rocket-preload-links-js-extra">
+        var RocketPreloadLinksConfig = { "excludeUris": "\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php|\/refer\/|\/go\/|\/recommend\/|\/recommends\/", "usesTrailingSlash": "1", "imageExt": "jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php", "fileExt": "jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm", "siteUrl": "https:\/\/onyxtour.uz", "onHoverDelay": "100", "rateThrottle": "3" };
+    </script>
+    <script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=3.1.0"
+        id="hello-theme-frontend-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1"
+        id="smartmenus-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2"
+        id="wp-polyfill-inert-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0"
+        id="regenerator-runtime-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+    <script type="rocketlazyloadscript" src="https://onyxtour.uz/wp-includes/js/dist/vendor/react.min.js?ver=18.2.0"
+        id="react-js" defer></script>
+    <script id="qligg-frontend-js-extra">
+        var qligg_frontend = { "settings": { "insta_flush": false, "insta_reset": 8, "spinner_image_url": "", "mail_to_alert": "admin@onyxtour.uz" }, "restRoutePaths": { "username": "https:\/\/onyxtour.uz\/wp-json\/quadlayers\/instagram\/frontend\/user-media", "tag": "https:\/\/onyxtour.uz\/wp-json\/quadlayers\/instagram\/frontend\/hashtag-media", "userprofile": "https:\/\/onyxtour.uz\/wp-json\/quadlayers\/instagram\/frontend\/user-profile" } };
+        var qligg_frontend = { "settings": { "insta_flush": false, "insta_reset": 8, "spinner_image_url": "", "mail_to_alert": "admin@onyxtour.uz" }, "restRoutePaths": { "username": "https:\/\/onyxtour.uz\/wp-json\/quadlayers\/instagram\/frontend\/user-media", "tag": "https:\/\/onyxtour.uz\/wp-json\/quadlayers\/instagram\/frontend\/hashtag-media", "userprofile": "https:\/\/onyxtour.uz\/wp-json\/quadlayers\/instagram\/frontend\/user-profile" } };
+    </script>
+    <script type="rocketlazyloadscript" data-minify="1"
+        src="https://onyxtour.uz/wp-content/cache/min/1/wp-content/plugins/insta-gallery/build/frontend/js/index.js?ver=1713380106"
+        id="qligg-frontend-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.22.1"
+        id="elementor-pro-webpack-runtime-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.22.3"
+        id="elementor-webpack-runtime-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.22.3"
+        id="elementor-frontend-modules-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+    <script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+    <script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/onyxtour.uz\/wp-admin\/admin-ajax.php","nonce":"ca2337a0a3","urls":{"assets":"https:\/\/onyxtour.uz\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/onyxtour.uz\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"woocommerce":{"menu_cart":{"cart_page_url":"https:\/\/onyxtour.uz","checkout_page_url":"https:\/\/onyxtour.uz","fragments_nonce":"255e6003ec"}},"facebook_sdk":{"lang":"ru_RU","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/onyxtour.uz\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.22.1"
+        id="elementor-pro-frontend-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2"
+        id="elementor-waypoints-js" defer></script>
+    <script type="rocketlazyloadscript" src="https://onyxtour.uz/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2"
+        id="jquery-ui-core-js" defer></script>
+    <script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u041f\u043e\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f \u0432 Facebook","shareOnTwitter":"\u041f\u043e\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f \u0432 Twitter","pinIt":"\u0417\u0430\u043f\u0438\u043d\u0438\u0442\u044c","download":"\u0421\u043a\u0430\u0447\u0430\u0442\u044c","downloadImage":"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u0435","fullscreen":"\u0412\u043e \u0432\u0435\u0441\u044c \u044d\u043a\u0440\u0430\u043d","zoom":"\u0423\u0432\u0435\u043b\u0438\u0447\u0435\u043d\u0438\u0435","share":"\u041f\u043e\u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f","playVideo":"\u041f\u0440\u043e\u0438\u0433\u0440\u0430\u0442\u044c \u0432\u0438\u0434\u0435\u043e","previous":"\u041d\u0430\u0437\u0430\u0434","next":"\u0414\u0430\u043b\u0435\u0435","close":"\u0417\u0430\u043a\u0440\u044b\u0442\u044c","a11yCarouselWrapperAriaLabel":"\u041a\u0430\u0440\u0443\u0441\u0435\u043b\u044c | \u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u0430\u044f \u043f\u0440\u043e\u043a\u0440\u0443\u0442\u043a\u0430: \u0441\u0442\u0440\u0435\u043b\u043a\u0430 \u0432\u043b\u0435\u0432\u043e \u0438 \u0432\u043f\u0440\u0430\u0432\u043e","a11yCarouselPrevSlideMessage":"\u041f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u0439 \u0441\u043b\u0430\u0439\u0434","a11yCarouselNextSlideMessage":"\u0421\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 \u0441\u043b\u0430\u0439\u0434","a11yCarouselFirstSlideMessage":"\u042d\u0442\u043e \u043f\u0435\u0440\u0432\u044b\u0439 \u0441\u043b\u0430\u0439\u0434","a11yCarouselLastSlideMessage":"\u042d\u0442\u043e \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0439 \u0441\u043b\u0430\u0439\u0434","a11yCarouselPaginationBulletMessage":"\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u043a \u0441\u043b\u0430\u0439\u0434\u0443"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0439 - \u043a\u043d\u0438\u0436\u043d\u0430\u044f \u043e\u0440\u0438\u0435\u043d\u0442\u0430\u0446\u0438\u044f","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0439 - \u0430\u043b\u044c\u0431\u043e\u043c\u043d\u0430\u044f \u043e\u0440\u0438\u0435\u043d\u0442\u0430\u0446\u0438\u044f","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u041f\u043b\u0430\u043d\u0448\u0435\u0442 - \u043a\u043d\u0438\u0436\u043d\u0430\u044f \u043e\u0440\u0438\u0435\u043d\u0442\u0430\u0446\u0438\u044f","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u041f\u043b\u0430\u043d\u0448\u0435\u0442 - \u0430\u043b\u044c\u0431\u043e\u043c\u043d\u0430\u044f \u043e\u0440\u0438\u0435\u043d\u0442\u0430\u0446\u0438\u044f","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u041d\u043e\u0443\u0442\u0431\u0443\u043a","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u0428\u0438\u0440\u043e\u043a\u043e\u0444\u043e\u0440\u043c\u0430\u0442\u043d\u044b\u0435","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.22.3","is_static":false,"experimentalFeatures":{"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"additional_custom_breakpoints":true,"container_grid":true,"e_swiper_latest":true,"e_onboarding":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"home_screen":true,"ai-layout":true,"landing-pages":true,"display-conditions":true,"form-submissions":true,"taxonomy-filter":true},"urls":{"assets":"https:\/\/onyxtour.uz\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","woocommerce_notices_elements":[],"hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":229,"title":"%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F%20Onyx%20Tour%20%25%20%D0%B3%D0%BE%D1%80%D1%8F%D1%89%D0%B8%D0%B5%20%D1%82%D1%83%D1%80%D1%8B%20%25%20%D1%82%D1%83%D1%80%D1%8B%20%D0%BF%D0%BE%20%D0%B2%D1%81%D0%B5%D0%BC%20%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC%20%25%20%D1%81%D0%B0%D0%BC%D1%8B%D0%B5%20%D0%B4%D0%B5%D1%88%D1%91%D0%B2%D1%8B%D0%B5%20%D1%82%D1%83%D1%80%D1%8B%20%E2%9C%88%EF%B8%8F","excerpt":"","featuredImage":false}};
+</script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.22.3"
+        id="elementor-frontend-js" defer></script>
+    <script type="rocketlazyloadscript"
+        src="https://onyxtour.uz/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.22.1"
+        id="pro-elements-handlers-js" defer></script>
+    <script>window.lazyLoadOptions = { elements_selector: "img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]", data_src: "lazy-src", data_srcset: "lazy-srcset", data_sizes: "lazy-sizes", class_loading: "lazyloading", class_loaded: "lazyloaded", threshold: 300, callback_loaded: function (element) { if (element.tagName === "IFRAME" && element.dataset.rocketLazyload == "fitvidscompatible") { if (element.classList.contains("lazyloaded")) { if (typeof window.jQuery != "undefined") { if (jQuery.fn.fitVids) { jQuery(element).parent().fitVids() } } } } } }; window.addEventListener('LazyLoad::Initialized', function (e) {
+            var lazyLoadInstance = e.detail.instance; if (window.MutationObserver) {
+                var observer = new MutationObserver(function (mutations) {
+                    var image_count = 0; var iframe_count = 0; var rocketlazy_count = 0; mutations.forEach(function (mutation) {
+                        for (var i = 0; i < mutation.addedNodes.length; i++) {
+                            if (typeof mutation.addedNodes[i].getElementsByTagName !== 'function') { continue }
+                            if (typeof mutation.addedNodes[i].getElementsByClassName !== 'function') { continue }
+                            images = mutation.addedNodes[i].getElementsByTagName('img'); is_image = mutation.addedNodes[i].tagName == "IMG"; iframes = mutation.addedNodes[i].getElementsByTagName('iframe'); is_iframe = mutation.addedNodes[i].tagName == "IFRAME"; rocket_lazy = mutation.addedNodes[i].getElementsByClassName('rocket-lazyload'); image_count += images.length; iframe_count += iframes.length; rocketlazy_count += rocket_lazy.length; if (is_image) { image_count += 1 }
+                            if (is_iframe) { iframe_count += 1 }
+                        }
+                    }); if (image_count > 0 || iframe_count > 0 || rocketlazy_count > 0) { lazyLoadInstance.update() }
+                }); var b = document.getElementsByTagName("body")[0]; var config = { childList: !0, subtree: !0 }; observer.observe(b, config)
+            }
+        }, !1)</script>
+    <script data-no-minify="1" async
+        src="https://onyxtour.uz/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>
+    <script>function lazyLoadThumb(e) { var t = '<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>', a = '<button class="play" aria-label="play Youtube video"></button>'; return t.replace("ID", e) + a } function lazyLoadYoutubeIframe() { var e = document.createElement("iframe"), t = "ID?autoplay=1"; t += 0 === this.parentNode.dataset.query.length ? '' : '&' + this.parentNode.dataset.query; e.setAttribute("src", t.replace("ID", this.parentNode.dataset.src)), e.setAttribute("frameborder", "0"), e.setAttribute("allowfullscreen", "1"), e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"), this.parentNode.parentNode.replaceChild(e, this.parentNode) } document.addEventListener("DOMContentLoaded", function () { var e, t, p, a = document.getElementsByClassName("rll-youtube-player"); for (t = 0; t < a.length; t++)e = document.createElement("div"), e.setAttribute("data-id", a[t].dataset.id), e.setAttribute("data-query", a[t].dataset.query), e.setAttribute("data-src", a[t].dataset.src), e.innerHTML = lazyLoadThumb(a[t].dataset.id), a[t].appendChild(e), p = e.querySelector('.play'), p.onclick = lazyLoadYoutubeIframe });</script>
+    <script>"use strict"; function wprRemoveCPCSS() { var preload_stylesheets = document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]'); if (preload_stylesheets && 0 < preload_stylesheets.length) for (var stylesheet_index = 0; stylesheet_index < preload_stylesheets.length; stylesheet_index++) { var media = preload_stylesheets[stylesheet_index].getAttribute("media") || "all"; if (window.matchMedia(media).matches) return void setTimeout(wprRemoveCPCSS, 200) } var elem = document.getElementById("rocket-critical-css"); elem && "remove" in elem && elem.remove() } window.addEventListener ? window.addEventListener("load", wprRemoveCPCSS) : window.attachEvent && window.attachEvent("onload", wprRemoveCPCSS);</script>
+    <script>class RocketElementorAnimation { constructor() { this.deviceMode = document.createElement("span"), this.deviceMode.id = "elementor-device-mode", this.deviceMode.setAttribute("class", "elementor-screen-only"), document.body.appendChild(this.deviceMode) } _detectAnimations() { let t = getComputedStyle(this.deviceMode, ":after").content.replace(/"/g, ""); this.animationSettingKeys = this._listAnimationSettingsKeys(t), document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t => { const e = t.getBoundingClientRect(); if (e.bottom >= 0 && e.top <= window.innerHeight) try { this._animateElement(t) } catch (t) { } }) } _animateElement(t) { const e = JSON.parse(t.dataset.settings), i = e._animation_delay || e.animation_delay || 0, n = e[this.animationSettingKeys.find(t => e[t])]; if ("none" === n) return void t.classList.remove("elementor-invisible"); t.classList.remove(n), this.currentAnimation && t.classList.remove(this.currentAnimation), this.currentAnimation = n; let s = setTimeout(() => { t.classList.remove("elementor-invisible"), t.classList.add("animated", n), this._removeAnimationSettings(t, e) }, i); window.addEventListener("rocket-startLoading", function () { clearTimeout(s) }) } _listAnimationSettingsKeys(t = "mobile") { const e = [""]; switch (t) { case "mobile": e.unshift("_mobile"); case "tablet": e.unshift("_tablet"); case "desktop": e.unshift("_desktop") }const i = []; return ["animation", "_animation"].forEach(t => { e.forEach(e => { i.push(t + e) }) }), i } _removeAnimationSettings(t, e) { this._listAnimationSettingsKeys().forEach(t => delete e[t]), t.dataset.settings = JSON.stringify(e) } static run() { const t = new RocketElementorAnimation; requestAnimationFrame(t._detectAnimations.bind(t)) } } document.addEventListener("DOMContentLoaded", RocketElementorAnimation.run);</script>
+    <noscript>
+        <link rel="stylesheet" href="https://onyxtour.uz/wp-content/cache/min/1/99b2d5bf1e089de5398ebe0a770f8226.css"
+            media="all" data-minify="1" />
+        <link rel='stylesheet' id='woocommerce-smallscreen-css'
+            href='https://onyxtour.uz/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=9.0.2'
+            media='only screen and (max-width: 768px)' />
+        <link rel='stylesheet' id='elementor-post-298-css'
+            href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-298.css?ver=1719572215' media='all' />
+        <link rel='stylesheet' id='elementor-post-229-css'
+            href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-229.css?ver=1719572216' media='all' />
+        <link rel='stylesheet' id='elementor-post-68-css'
+            href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-68.css?ver=1719572216' media='all' />
+        <link rel='stylesheet' id='elementor-post-14-css'
+            href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-14.css?ver=1719994512' media='all' />
+        <link rel='stylesheet' id='elementor-post-1466-css'
+            href='https://onyxtour.uz/wp-content/uploads/elementor/css/post-1466.css?ver=1719572216' media='all' />
+        <link rel='stylesheet' id='google-fonts-1-css'
+            href='https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRaleway%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;subset=cyrillic&#038;ver=6.5.5'
+            media='all' />
+    </noscript>
+</body>
+
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1720524211 -->
